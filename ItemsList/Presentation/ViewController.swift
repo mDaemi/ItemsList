@@ -7,12 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: AbstractViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        // Do any additional setup after loading the view.
     }
 }
 
