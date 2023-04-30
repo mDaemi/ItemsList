@@ -16,6 +16,8 @@
 		6C1B235E29FE5236009BFB6B /* ItemsListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B235D29FE5236009BFB6B /* ItemsListUITestsLaunchTests.swift */; };
 		DDB3102429FE6AD300C11D59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDB3102629FE6AD300C11D59 /* Localizable.strings */; };
 		DDB3102929FE6C2600C11D59 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB3102829FE6C2600C11D59 /* Color.xcassets */; };
+		DDB3103C29FE751200C11D59 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3103B29FE751200C11D59 /* ColorSet.swift */; };
+		DDB3103E29FE763B00C11D59 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3103D29FE763B00C11D59 /* ColorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		DDB3102529FE6AD300C11D59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DDB3102729FE6AF000C11D59 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DDB3102829FE6C2600C11D59 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		DDB3103B29FE751200C11D59 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		DDB3103D29FE763B00C11D59 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,7 @@
 		DDB3102A29FE6D1400C11D59 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				DDB3103B29FE751200C11D59 /* ColorSet.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 		DDB3103A29FE6FA700C11D59 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DDB3103D29FE763B00C11D59 /* ColorManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -414,7 +420,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C1B233F29FE5235009BFB6B /* ViewController.swift in Sources */,
+				DDB3103C29FE751200C11D59 /* ColorSet.swift in Sources */,
 				6C1B233B29FE5235009BFB6B /* AppDelegate.swift in Sources */,
+				DDB3103E29FE763B00C11D59 /* ColorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
