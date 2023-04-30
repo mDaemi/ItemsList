@@ -12,13 +12,18 @@ struct ItemsListResponse: Codable {
 }
 
 struct ItemResponse: Codable {
-    var id: Int?
-    var category_id: Int?
-    var title: String?
-    var description: String?
-    var price: Double?
-    var images_url: String?
-    var creation_date: Date?
-    var is_urgent: Bool?
-    var category_name: String?
+    let id: Int?
+    let category_id: Int?
+    let title: String?
+    let description: String?
+    let price: Double?
+    let images_url: ImagesUrl?
+    let creation_date: Date?
+    let is_urgent: Bool?
+    let category_name: String?
+}
+
+struct ImagesUrl: Codable {
+    var small: String?
+    var thumb: String?
 }

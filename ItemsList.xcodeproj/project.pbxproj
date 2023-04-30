@@ -28,6 +28,10 @@
 		DDB3107E29FF069800C11D59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3107D29FF069800C11D59 /* SceneDelegate.swift */; };
 		DDB3108129FF0F6700C11D59 /* AbstractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108029FF0F6700C11D59 /* AbstractService.swift */; };
 		DDB3108329FF103700C11D59 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108229FF103700C11D59 /* Constants.swift */; };
+		DDB3108529FF152D00C11D59 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108429FF152D00C11D59 /* Item.swift */; };
+		DDB3108729FF153900C11D59 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108629FF153900C11D59 /* Category.swift */; };
+		DDB3108929FF16D000C11D59 /* ItemsResponse+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108829FF16D000C11D59 /* ItemsResponse+Mapper.swift */; };
+		DDB3108B29FF16E500C11D59 /* CategoryResponse+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108A29FF16E500C11D59 /* CategoryResponse+Mapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 		DDB3107D29FF069800C11D59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDB3108029FF0F6700C11D59 /* AbstractService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractService.swift; sourceTree = "<group>"; };
 		DDB3108229FF103700C11D59 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DDB3108429FF152D00C11D59 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		DDB3108629FF153900C11D59 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		DDB3108829FF16D000C11D59 /* ItemsResponse+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsResponse+Mapper.swift"; sourceTree = "<group>"; };
+		DDB3108A29FF16E500C11D59 /* CategoryResponse+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryResponse+Mapper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +265,8 @@
 		DDB3103329FE6F1800C11D59 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
+				DDB3108829FF16D000C11D59 /* ItemsResponse+Mapper.swift */,
+				DDB3108A29FF16E500C11D59 /* CategoryResponse+Mapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -286,6 +296,8 @@
 		DDB3103729FE6F6100C11D59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DDB3108429FF152D00C11D59 /* Item.swift */,
+				DDB3108629FF153900C11D59 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -484,13 +496,17 @@
 				6C1B233F29FE5235009BFB6B /* ViewController.swift in Sources */,
 				DDB3103C29FE751200C11D59 /* ColorSet.swift in Sources */,
 				DDB3104229FE80B300C11D59 /* CategoryResponse.swift in Sources */,
+				DDB3108929FF16D000C11D59 /* ItemsResponse+Mapper.swift in Sources */,
 				DDB3108129FF0F6700C11D59 /* AbstractService.swift in Sources */,
 				6C1B233B29FE5235009BFB6B /* AppDelegate.swift in Sources */,
 				DDB3105B29FEF98300C11D59 /* UIView+Loader.swift in Sources */,
+				DDB3108B29FF16E500C11D59 /* CategoryResponse+Mapper.swift in Sources */,
 				DDB3105C29FEF98300C11D59 /* LoadingView.swift in Sources */,
+				DDB3108729FF153900C11D59 /* Category.swift in Sources */,
 				DDB3105529FE90DD00C11D59 /* SnackView.swift in Sources */,
 				DDB3103E29FE763B00C11D59 /* ColorManager.swift in Sources */,
 				DDB3104029FE800F00C11D59 /* ItemResponse.swift in Sources */,
+				DDB3108529FF152D00C11D59 /* Item.swift in Sources */,
 				DDB3104529FE834000C11D59 /* AbstractViewController.swift in Sources */,
 				DDB3108329FF103700C11D59 /* Constants.swift in Sources */,
 				DDB3104F29FE887900C11D59 /* UIView+Extension.swift in Sources */,
