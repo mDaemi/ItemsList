@@ -8,10 +8,10 @@
 import Foundation
 
 struct CategoriesResponse: Codable {
-    let categories: [ItemResponse]?
+    var categories: [ItemResponse]?
 }
 
 struct CategoryResponse: Codable {
-    let id: Int?
-    let name: String?
+    var id: Int?
+    var name: String?
 }

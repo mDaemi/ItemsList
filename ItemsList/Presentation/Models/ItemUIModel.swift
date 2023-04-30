@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  ItemUIModel.swift
 //  ItemsList
 //
 //  Created by Maedeh DAEMI on 30/04/2023.
@@ -7,14 +7,12 @@
 
 import Foundation
 
-struct Item {
-    let id: Int
-    let category_id: Int
+struct ItemUIModel {
     let title: String
     let description: String
-    var price: Double?
+    var price: String
     var images_url: ImagesUrl?
-    var creation_date: Date?
+    var creation_date: String
     let is_urgent: Bool
     let category_name: String
 }

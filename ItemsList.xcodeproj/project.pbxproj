@@ -32,6 +32,11 @@
 		DDB3108729FF153900C11D59 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108629FF153900C11D59 /* Category.swift */; };
 		DDB3108929FF16D000C11D59 /* ItemsResponse+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108829FF16D000C11D59 /* ItemsResponse+Mapper.swift */; };
 		DDB3108B29FF16E500C11D59 /* CategoryResponse+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108A29FF16E500C11D59 /* CategoryResponse+Mapper.swift */; };
+		DDB3108E29FF18D800C11D59 /* ItemUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108D29FF18D800C11D59 /* ItemUIModel.swift */; };
+		DDB3109029FF18EA00C11D59 /* CategoryUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3108F29FF18EA00C11D59 /* CategoryUIModel.swift */; };
+		DDB3109329FF1A6E00C11D59 /* Item+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3109229FF1A6E00C11D59 /* Item+Mapper.swift */; };
+		DDB3109529FF1A7D00C11D59 /* Category+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3109429FF1A7D00C11D59 /* Category+Mapper.swift */; };
+		DDB3109729FF1BA200C11D59 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3109629FF1BA200C11D59 /* DateFormatter+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +87,11 @@
 		DDB3108629FF153900C11D59 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DDB3108829FF16D000C11D59 /* ItemsResponse+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsResponse+Mapper.swift"; sourceTree = "<group>"; };
 		DDB3108A29FF16E500C11D59 /* CategoryResponse+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryResponse+Mapper.swift"; sourceTree = "<group>"; };
+		DDB3108D29FF18D800C11D59 /* ItemUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemUIModel.swift; sourceTree = "<group>"; };
+		DDB3108F29FF18EA00C11D59 /* CategoryUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUIModel.swift; sourceTree = "<group>"; };
+		DDB3109229FF1A6E00C11D59 /* Item+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+Mapper.swift"; sourceTree = "<group>"; };
+		DDB3109429FF1A7D00C11D59 /* Category+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Mapper.swift"; sourceTree = "<group>"; };
+		DDB3109629FF1BA200C11D59 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +191,7 @@
 				DDB3103529FE6F4100C11D59 /* DI */,
 				DDB3103629FE6F4B00C11D59 /* Repositories */,
 				DDB3103729FE6F6100C11D59 /* Models */,
+				DDB3109129FF1A4D00C11D59 /* Mappers */,
 				DDB3103829FE6F6A00C11D59 /* UseCases */,
 			);
 			path = Domain;
@@ -190,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB3104329FE832E00C11D59 /* Common */,
+				DDB3108C29FF18BC00C11D59 /* Models */,
 				DDB3103929FE6F8100C11D59 /* Mappers */,
 				DDB3102A29FE6D1400C11D59 /* Constants */,
 				DDB3103A29FE6FA700C11D59 /* Utils */,
@@ -339,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB3104E29FE887900C11D59 /* UIView+Extension.swift */,
+				DDB3109629FF1BA200C11D59 /* DateFormatter+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +371,24 @@
 				DDB3108029FF0F6700C11D59 /* AbstractService.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		DDB3108C29FF18BC00C11D59 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DDB3108D29FF18D800C11D59 /* ItemUIModel.swift */,
+				DDB3108F29FF18EA00C11D59 /* CategoryUIModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DDB3109129FF1A4D00C11D59 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				DDB3109229FF1A6E00C11D59 /* Item+Mapper.swift */,
+				DDB3109429FF1A7D00C11D59 /* Category+Mapper.swift */,
+			);
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,13 +524,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB3109529FF1A7D00C11D59 /* Category+Mapper.swift in Sources */,
 				6C1B233F29FE5235009BFB6B /* ViewController.swift in Sources */,
+				DDB3108E29FF18D800C11D59 /* ItemUIModel.swift in Sources */,
 				DDB3103C29FE751200C11D59 /* ColorSet.swift in Sources */,
 				DDB3104229FE80B300C11D59 /* CategoryResponse.swift in Sources */,
 				DDB3108929FF16D000C11D59 /* ItemsResponse+Mapper.swift in Sources */,
+				DDB3109729FF1BA200C11D59 /* DateFormatter+Extension.swift in Sources */,
+				DDB3109029FF18EA00C11D59 /* CategoryUIModel.swift in Sources */,
 				DDB3108129FF0F6700C11D59 /* AbstractService.swift in Sources */,
 				6C1B233B29FE5235009BFB6B /* AppDelegate.swift in Sources */,
 				DDB3105B29FEF98300C11D59 /* UIView+Loader.swift in Sources */,
+				DDB3109329FF1A6E00C11D59 /* Item+Mapper.swift in Sources */,
 				DDB3108B29FF16E500C11D59 /* CategoryResponse+Mapper.swift in Sources */,
 				DDB3105C29FEF98300C11D59 /* LoadingView.swift in Sources */,
 				DDB3108729FF153900C11D59 /* Category.swift in Sources */,
