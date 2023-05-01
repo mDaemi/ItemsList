@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct CategoriesResponse: Codable {
-    var categories: [ItemResponse]?
-}
-
 struct CategoryResponse: Codable {
     var id: Int?
     var name: String?

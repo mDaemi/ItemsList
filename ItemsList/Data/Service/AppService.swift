@@ -7,13 +7,13 @@
 
 import Foundation
 
-class AppService: AbstractService {
+final class AppService: AbstractService {
     
     // MARK: - Properties
     static let shared = AppService()
 
     // MARK: - Public
-    public func getItems() async throws -> ItemsListResponse? {
+    public func getItems() async throws -> [ItemResponse]? {
         var urlString = Constants.getUrlString(of: Constants.requests.items)
         guard let url = URL(string: urlString) else {
             throw AppError.ServiceError.invalidData
@@ -23,10 +23,10 @@ class AppService: AbstractService {
         urlRequest.httpMethod = Constants.httpMethod.get
         if #available(iOS 15.0, *) {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            return try self.getDecoder().decode(ItemsListResponse.self, from: data)
+            return try self.getDecoder().decode([ItemResponse].self, from: data)
         } else {
             return try await withCheckedThrowingContinuation({
-                (continuation: CheckedContinuation<ItemsListResponse?, Error>) in
+                (continuation: CheckedContinuation<[ItemResponse]?, Error>) in
                 getItems(urlRequest: urlRequest, completion: { data, error in
                     if let error = error {
                         continuation.resume(throwing: error)
@@ -38,7 +38,7 @@ class AppService: AbstractService {
         }
     }
     
-    public func getCategories() async throws -> CategoriesResponse? {
+    public func getCategories() async throws -> [CategoryResponse]? {
         var urlString = Constants.getUrlString(of: Constants.requests.categories)
         guard let url = URL(string: urlString) else {
             throw AppError.ServiceError.invalidData
@@ -48,10 +48,10 @@ class AppService: AbstractService {
         urlRequest.httpMethod = Constants.httpMethod.get
         if #available(iOS 15.0, *) {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            return try self.getDecoder().decode(CategoriesResponse.self, from: data)
+            return try self.getDecoder().decode([CategoryResponse].self, from: data)
         } else {
             return try await withCheckedThrowingContinuation({
-                (continuation: CheckedContinuation<CategoriesResponse?, Error>) in
+                (continuation: CheckedContinuation<[CategoryResponse]?, Error>) in
                 getCategories(urlRequest: urlRequest, completion: { data, error in
                     if let error = error {
                         continuation.resume(throwing: error)
@@ -64,13 +64,13 @@ class AppService: AbstractService {
     }
 
     // MARK: - Private
-    private func getItems(urlRequest: URLRequest, completion: @escaping (ItemsListResponse?, Error?) -> Void) {
+    private func getItems(urlRequest: URLRequest, completion: @escaping ([ItemResponse]?, Error?) -> Void) {
         let urlSession = URLSession(configuration: .default).dataTask(with: urlRequest, completionHandler: {(data, _, error) -> Void in
             if let error = error {
                 completion(nil, error)
             } else if let data = data {
                 do {
-                    completion(try self.getDecoder().decode(ItemsListResponse.self, from: data), nil)
+                    completion(try self.getDecoder().decode([ItemResponse].self, from: data), nil)
                 } catch {
                     completion(nil, AppError.ServiceError.invalidData)
                 }
@@ -81,13 +81,13 @@ class AppService: AbstractService {
         urlSession.resume()
     }
     
-    private func getCategories(urlRequest: URLRequest, completion: @escaping (CategoriesResponse?, Error?) -> Void) {
+    private func getCategories(urlRequest: URLRequest, completion: @escaping ([CategoryResponse]?, Error?) -> Void) {
         let urlSession = URLSession(configuration: .default).dataTask(with: urlRequest, completionHandler: {(data, _, error) -> Void in
             if let error = error {
                 completion(nil, error)
             } else if let data = data {
                 do {
-                    completion(try self.getDecoder().decode(CategoriesResponse.self, from: data), nil)
+                    completion(try self.getDecoder().decode([CategoryResponse].self, from: data), nil)
                 } catch {
                     completion(nil, AppError.ServiceError.invalidData)
                 }
