@@ -8,12 +8,15 @@
 import Foundation
 
 class AppUseCase {
+    // MARK: - properties
     let repository: PAppRepository
     
+    // MARK: - init
     init(repository: PAppRepository) {
         self.repository = repository
     }
     
+    // MARK: - Internals
     func loadItems() async throws -> [Item]? {
         return try await self.repository.getItems()
     }

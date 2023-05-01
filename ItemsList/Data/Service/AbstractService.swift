@@ -15,7 +15,7 @@ class AbstractService {
         return decoder
     }()
 
-    // MARK: - Public
+    // MARK: - Internal
     func getDecoder() -> JSONDecoder {
         return decoder
     }

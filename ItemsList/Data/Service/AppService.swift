@@ -12,7 +12,7 @@ final class AppService: AbstractService {
     // MARK: - Properties
     static let shared = AppService()
 
-    // MARK: - Public
+    // MARK: - public
     public func getItems() async throws -> [ItemResponse]? {
         var urlString = Constants.getUrlString(of: Constants.requests.items)
         guard let url = URL(string: urlString) else {
