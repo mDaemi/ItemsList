@@ -37,6 +37,8 @@
 		DDB3109329FF1A6E00C11D59 /* Item+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3109229FF1A6E00C11D59 /* Item+Mapper.swift */; };
 		DDB3109529FF1A7D00C11D59 /* Category+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3109429FF1A7D00C11D59 /* Category+Mapper.swift */; };
 		DDB3109729FF1BA200C11D59 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3109629FF1BA200C11D59 /* DateFormatter+Extension.swift */; };
+		DDB3109B29FF1EF700C11D59 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3109A29FF1EF700C11D59 /* AppService.swift */; };
+		DDB3109E2A001E9E00C11D59 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3109D2A001E9E00C11D59 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		DDB3109229FF1A6E00C11D59 /* Item+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+Mapper.swift"; sourceTree = "<group>"; };
 		DDB3109429FF1A7D00C11D59 /* Category+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Mapper.swift"; sourceTree = "<group>"; };
 		DDB3109629FF1BA200C11D59 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		DDB3109A29FF1EF700C11D59 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		DDB3109D2A001E9E00C11D59 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,12 +147,11 @@
 			isa = PBXGroup;
 			children = (
 				6C1B234829FE5236009BFB6B /* Info.plist */,
+				DDB3109C2A001E7100C11D59 /* Base */,
 				DDB3101E29FE685800C11D59 /* Data */,
 				DDB3101F29FE685F00C11D59 /* Domain */,
 				DDB3102029FE686E00C11D59 /* Presentation */,
 				DDB3102129FE693B00C11D59 /* Resources */,
-				6C1B233A29FE5235009BFB6B /* AppDelegate.swift */,
-				DDB3107D29FF069800C11D59 /* SceneDelegate.swift */,
 			);
 			path = ItemsList;
 			sourceTree = "<group>";
@@ -286,7 +289,8 @@
 		DDB3103429FE6F2800C11D59 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DDB3107F29FF0F4E00C11D59 /* Common */,
+				DDB3108029FF0F6700C11D59 /* AbstractService.swift */,
+				DDB3109A29FF1EF700C11D59 /* AppService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -365,14 +369,6 @@
 			path = LoadingView;
 			sourceTree = "<group>";
 		};
-		DDB3107F29FF0F4E00C11D59 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				DDB3108029FF0F6700C11D59 /* AbstractService.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		DDB3108C29FF18BC00C11D59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +385,16 @@
 				DDB3109429FF1A7D00C11D59 /* Category+Mapper.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		DDB3109C2A001E7100C11D59 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DDB3107D29FF069800C11D59 /* SceneDelegate.swift */,
+				6C1B233A29FE5235009BFB6B /* AppDelegate.swift */,
+				DDB3109D2A001E9E00C11D59 /* Errors.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,8 +543,10 @@
 				DDB3105B29FEF98300C11D59 /* UIView+Loader.swift in Sources */,
 				DDB3109329FF1A6E00C11D59 /* Item+Mapper.swift in Sources */,
 				DDB3108B29FF16E500C11D59 /* CategoryResponse+Mapper.swift in Sources */,
+				DDB3109B29FF1EF700C11D59 /* AppService.swift in Sources */,
 				DDB3105C29FEF98300C11D59 /* LoadingView.swift in Sources */,
 				DDB3108729FF153900C11D59 /* Category.swift in Sources */,
+				DDB3109E2A001E9E00C11D59 /* Errors.swift in Sources */,
 				DDB3105529FE90DD00C11D59 /* SnackView.swift in Sources */,
 				DDB3103E29FE763B00C11D59 /* ColorManager.swift in Sources */,
 				DDB3104029FE800F00C11D59 /* ItemResponse.swift in Sources */,

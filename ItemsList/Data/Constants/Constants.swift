@@ -8,29 +8,42 @@
 import Foundation
 
 struct Constants {
-    struct api {
-        static let base = "raw.githubusercontent.com/leboncoin/paperclip/master"
-        static let items = "/listing.json"
-        static let categories = "/categories.json"
+    public typealias APIs = Constants.Service.API
+    public typealias requests = Constants.Service.API.request
+    public typealias httpMethod = Constants.Service.HttpMethod
+    
+    struct Service {
+        struct API {
+            static let base = "raw.githubusercontent.com/leboncoin/paperclip/master"
+            static let items = "/listing.json"
+            static let categories = "/categories.json"
+            
+            enum request {
+                case items
+                case categories
+            }
+        }
         
-        enum urls {
-            case items
-            case categories
+        struct HttpMethod {
+            static let get = "GET"
+            static let put = "PUT"
+            static let post = "POST"
+            static let delete = "DELETE"
         }
     }
 }
 
 extension Constants {
-    static func getConfigUrl(_ url: Constants.api.urls) -> String {
-        var key: String = ""
+    static func getUrlString(of request: requests) -> String {
+        var suffix: String = ""
         
-        switch url {
+        switch request {
         case .items:
-            key = api.items
+            suffix = APIs.items
         case .categories:
-            key = api.categories
+            suffix = APIs.categories
         }
         
-        return "https://\(api.base)\(key)"
+        return "https://\(APIs.base)\(suffix)"
     }
 }
