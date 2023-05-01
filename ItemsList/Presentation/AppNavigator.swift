@@ -12,6 +12,12 @@ protocol PAppNavigator {
 }
 
 final class AppNavigator: AbstractNavigator, PAppNavigator {
+    func toItems() {
+        let vc = ItemsListViewController()
+        vc.viewModel = AppViewModel(self, services.provideAppUseCase())
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     func toItemDetail() {
         let vc = ItemDetailViewController()
         navigationController.pushViewController(vc, animated: true)

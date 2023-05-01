@@ -49,6 +49,8 @@
 		DDB310B02A0056CC00C11D59 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310AF2A0056CC00C11D59 /* AppNavigator.swift */; };
 		DDB310B22A0059C500C11D59 /* AbstractNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310B12A0059C500C11D59 /* AbstractNavigator.swift */; };
 		DDB310B42A005A4100C11D59 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310B32A005A4100C11D59 /* ItemDetailViewController.swift */; };
+		DDB310B62A00694400C11D59 /* Foundation+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310B52A00694400C11D59 /* Foundation+Utils.swift */; };
+		DDB310B82A006C2D00C11D59 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310B72A006C2D00C11D59 /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		DDB310AF2A0056CC00C11D59 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
 		DDB310B12A0059C500C11D59 /* AbstractNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractNavigator.swift; sourceTree = "<group>"; };
 		DDB310B32A005A4100C11D59 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		DDB310B52A00694400C11D59 /* Foundation+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Utils.swift"; sourceTree = "<group>"; };
+		DDB310B72A006C2D00C11D59 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,7 @@
 				DDB310AD2A00561E00C11D59 /* AppViewModel.swift */,
 				DDB310AF2A0056CC00C11D59 /* AppNavigator.swift */,
 				DDB310B32A005A4100C11D59 /* ItemDetailViewController.swift */,
+				DDB310B72A006C2D00C11D59 /* SplashViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB3104B29FE878A00C11D59 /* Extensions */,
+				DDB310B52A00694400C11D59 /* Foundation+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -492,6 +498,8 @@
 				6C1B233F29FE5235009BFB6B /* ItemsListViewController.swift in Sources */,
 				DDB3108E29FF18D800C11D59 /* ItemUIModel.swift in Sources */,
 				DDB310AC2A00552B00C11D59 /* ItemCollectionViewCell.swift in Sources */,
+				DDB310B82A006C2D00C11D59 /* SplashViewController.swift in Sources */,
+				DDB310B62A00694400C11D59 /* Foundation+Utils.swift in Sources */,
 				DDB3103C29FE751200C11D59 /* ColorSet.swift in Sources */,
 				DDB3104229FE80B300C11D59 /* CategoryResponse.swift in Sources */,
 				DDB310A82A003B5500C11D59 /* PAppRepository.swift in Sources */,

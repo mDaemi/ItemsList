@@ -9,14 +9,17 @@ import UIKit
 
 final class ItemsListViewController: AbstractViewController {
     // MARK: - Properties
-    fileprivate var items: [Item] = []
+    fileprivate var items: [ItemUIModel] = []
+    fileprivate var categories: [CategoryUIModel] = []
     fileprivate var collectionView: UICollectionView!
     fileprivate let reuseIdentifier = "cell"
+    var viewModel: AppViewModel?
     
     // MARK: - Inherite
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        loadData()
     }
     
     // MARK: - Private
@@ -35,6 +38,22 @@ final class ItemsListViewController: AbstractViewController {
         
         view.addSubview(collectionView)
         collectionView.constraintToSuperview()
+    }
+    
+    private func loadData() {
+        guard let viewModel = viewModel else {
+            print("ViewModel is NULL.")
+            return
+        }
+        
+        Task {
+            do {
+                self.items = try await viewModel.getItems()
+                self.categories = try await viewModel.getCategories()
+            } catch {
+                displaySnack(text: localized("error.service"), color: .red)
+            }
+        }
     }
 }
 
