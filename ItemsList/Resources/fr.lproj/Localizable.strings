@@ -16,3 +16,4 @@
  // MARK: -                          Items
  ******************************************************************************/
 "item.filter" = "tous les articles";
+"item.done" = "Choisir";

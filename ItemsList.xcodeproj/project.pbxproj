@@ -56,6 +56,7 @@
 		DDB310CE2A03E5F100C11D59 /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310CD2A03E5F100C11D59 /* FontConstant.swift */; };
 		DDB310D02A03E6D000C11D59 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310CF2A03E6D000C11D59 /* Constraints.swift */; };
 		DDB310D22A03F68F00C11D59 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D12A03F68F00C11D59 /* UIImageView+Extension.swift */; };
+		DDB310D42A04524900C11D59 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D32A04524900C11D59 /* PickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		DDB310CD2A03E5F100C11D59 /* FontConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstant.swift; sourceTree = "<group>"; };
 		DDB310CF2A03E6D000C11D59 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		DDB310D12A03F68F00C11D59 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		DDB310D32A04524900C11D59 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 			children = (
 				DDB3105829FEF98300C11D59 /* LoadingView */,
 				DDB310B12A0059C500C11D59 /* AbstractNavigator.swift */,
+				DDB310D32A04524900C11D59 /* PickerView.swift */,
 				DDB3104429FE834000C11D59 /* AbstractViewController.swift */,
 				DDB3103D29FE763B00C11D59 /* ColorManager.swift */,
 				DDB3105429FE90DD00C11D59 /* SnackView.swift */,
@@ -632,6 +635,7 @@
 				DDB3103C29FE751200C11D59 /* ColorSet.swift in Sources */,
 				DDB3104229FE80B300C11D59 /* CategoryResponse.swift in Sources */,
 				DDB310A82A003B5500C11D59 /* PAppRepository.swift in Sources */,
+				DDB310D42A04524900C11D59 /* PickerView.swift in Sources */,
 				DDB3108929FF16D000C11D59 /* ItemsResponse+Mapper.swift in Sources */,
 				DDB3109729FF1BA200C11D59 /* DateFormatter+Extension.swift in Sources */,
 				DDB310A42A003AC800C11D59 /* AppRepository.swift in Sources */,

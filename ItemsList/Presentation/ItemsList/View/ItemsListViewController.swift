@@ -14,8 +14,7 @@ final class ItemsListViewController: AbstractViewController {
     private var collectionView: UICollectionView!
     private let reuseIdentifier = "cell"
     private var observers: [AnyCancellable] = []
-    private var toolBar = UIToolbar()
-    private var picker  = UIPickerView()
+    private var pickerView  = PickerView()
     private var filteredItems: [ItemUIModel] = []
     private var filterWord: String?
     var viewModel: ItemsViewModel?
@@ -23,36 +22,23 @@ final class ItemsListViewController: AbstractViewController {
     // MARK: - Inherite
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
-        setupCollectionView()
-        bindViewModel()
-        loadData()
-    }
-    
-    // MARK: - Private
-    private func configureNavigationBar() {
+        view.backgroundColor = .white
+       
+        // Navigation bar configuration
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Filter"), for: .normal)
-        button.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(filterButtonWasTapped), for: .touchUpInside)
         button.widthAnchor.constraint(equalToConstant: 24).isActive = true
         button.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         let barButtonItem = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = barButtonItem
         navigationItem.hidesBackButton = true
-    }
-   
-    private func bindViewModel() {
-        viewModel?.$items
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] items in
-                self?.filteredItems = items
-                self?.collectionView.reloadData()
-            }
-            .store(in: &observers)
-    }
-    
-    private func setupCollectionView() {
+        
+        // Add loadingView
+        view.showLoader()
+        
+        // Set up collectionView
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 10
@@ -67,6 +53,34 @@ final class ItemsListViewController: AbstractViewController {
         
         view.addSubview(collectionView)
         collectionView.constraintToSuperview()
+        collectionView.isHidden = true
+        
+        // Data
+        bindViewModel()
+        loadData()
+        
+        // Filtering
+        pickerView.$didSelect
+            .sink { [weak self] filterWasSelected in
+                if filterWasSelected {
+                    self?.pickerView.removeFromSuperview()
+                    self?.startFiltering()
+                }
+            }
+            .store(in: &observers)
+    }
+    
+    // MARK: - Private
+    private func bindViewModel() {
+        viewModel?.$items
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] items in
+                self?.collectionView.isHidden = false
+                self?.filteredItems = items
+                self?.collectionView.reloadData()
+                self?.view.hideLoader()
+            }
+            .store(in: &observers)
     }
     
     private func loadData() {
@@ -83,27 +97,8 @@ final class ItemsListViewController: AbstractViewController {
             }
         }
     }
-
-    // MARK: - Actions
-    @objc private func filterButtonTapped() {
-        picker = UIPickerView.init()
-        picker.delegate = self
-        picker.dataSource = self
-        picker.backgroundColor = UIColor.white
-        picker.setValue(UIColor.black, forKey: "textColor")
-        picker.autoresizingMask = .flexibleWidth
-        picker.contentMode = .center
-        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 200, width: UIScreen.main.bounds.size.width, height: 200)
-        self.view.addSubview(picker)
-        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 200, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
-        self.view.addSubview(toolBar)
-    }
     
-    @objc private func onDoneButtonTapped() {
-        toolBar.removeFromSuperview()
-        picker.removeFromSuperview()
-        
+    private func startFiltering() {
         guard let items = viewModel?.items else {
             return
         }
@@ -117,6 +112,17 @@ final class ItemsListViewController: AbstractViewController {
         }
         
         collectionView.reloadData()
+    }
+
+    // MARK: - Actions
+    @objc private func filterButtonWasTapped() {
+        guard let items = viewModel?.items, !items.isEmpty else {
+            return
+        }
+        pickerView.picker.delegate = self
+        pickerView.picker.dataSource = self
+        pickerView.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 200, width: UIScreen.main.bounds.size.width, height: 200)
+        view.addSubview(pickerView)
     }
 }
 

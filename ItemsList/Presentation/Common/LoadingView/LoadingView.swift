@@ -15,7 +15,6 @@ final class LoadingView: UIView {
     // MARK: - Inherit
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initialize()
     }
     
     override init(frame: CGRect) {
@@ -36,6 +35,6 @@ final class LoadingView: UIView {
         self.activityIndicator.style = .large
         self.activityIndicator.color = .gray
         addSubview(activityIndicator)
-        activityIndicator.constraintToSuperview(centerX: 0, centerY: 0)
+        activityIndicator.constraintToSuperview()
     }
 }
