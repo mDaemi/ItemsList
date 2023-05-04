@@ -28,6 +28,7 @@ final class ItemsListViewController: AbstractViewController {
     // MARK: - Private
     private func bindViewModel() {
         viewModel?.$items
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
                 self?.collectionView.reloadData()
             }
@@ -71,11 +72,14 @@ final class ItemsListViewController: AbstractViewController {
 // MARK: - UICollectionViewDataSource
 extension ItemsListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return viewModel?.items.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ItemCollectionViewCell, let item = viewModel?.items[indexPath.row] else {
+            return UICollectionViewCell()
+        }
+        cell.item = item
         return cell
     }
 }

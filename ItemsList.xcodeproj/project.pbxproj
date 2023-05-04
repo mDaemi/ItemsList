@@ -53,6 +53,9 @@
 		DDB310C22A03A1BD00C11D59 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310C12A03A1BD00C11D59 /* SplashViewModel.swift */; };
 		DDB310CA2A03A4F400C11D59 /* DataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310C92A03A4F400C11D59 /* DataUseCaseProvider.swift */; };
 		DDB310CC2A03A99B00C11D59 /* SplashNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310CB2A03A99B00C11D59 /* SplashNavigator.swift */; };
+		DDB310CE2A03E5F100C11D59 /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310CD2A03E5F100C11D59 /* FontConstant.swift */; };
+		DDB310D02A03E6D000C11D59 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310CF2A03E6D000C11D59 /* Constraints.swift */; };
+		DDB310D22A03F68F00C11D59 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D12A03F68F00C11D59 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,9 @@
 		DDB310C12A03A1BD00C11D59 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		DDB310C92A03A4F400C11D59 /* DataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseCaseProvider.swift; sourceTree = "<group>"; };
 		DDB310CB2A03A99B00C11D59 /* SplashNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigator.swift; sourceTree = "<group>"; };
+		DDB310CD2A03E5F100C11D59 /* FontConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstant.swift; sourceTree = "<group>"; };
+		DDB310CF2A03E6D000C11D59 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		DDB310D12A03F68F00C11D59 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				DDB3103B29FE751200C11D59 /* ColorSet.swift */,
+				DDB310CD2A03E5F100C11D59 /* FontConstant.swift */,
+				DDB310CF2A03E6D000C11D59 /* Constraints.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -322,6 +330,7 @@
 			children = (
 				DDB3104E29FE887900C11D59 /* UIView+Extension.swift */,
 				DDB3109629FF1BA200C11D59 /* DateFormatter+Extension.swift */,
+				DDB310D12A03F68F00C11D59 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -626,6 +635,7 @@
 				DDB3108929FF16D000C11D59 /* ItemsResponse+Mapper.swift in Sources */,
 				DDB3109729FF1BA200C11D59 /* DateFormatter+Extension.swift in Sources */,
 				DDB310A42A003AC800C11D59 /* AppRepository.swift in Sources */,
+				DDB310CE2A03E5F100C11D59 /* FontConstant.swift in Sources */,
 				DDB310CC2A03A99B00C11D59 /* SplashNavigator.swift in Sources */,
 				DDB3109029FF18EA00C11D59 /* CategoryUIModel.swift in Sources */,
 				DDB3108129FF0F6700C11D59 /* AbstractService.swift in Sources */,
@@ -641,12 +651,14 @@
 				DDB3105529FE90DD00C11D59 /* SnackView.swift in Sources */,
 				DDB3103E29FE763B00C11D59 /* ColorManager.swift in Sources */,
 				DDB310B22A0059C500C11D59 /* AbstractNavigator.swift in Sources */,
+				DDB310D22A03F68F00C11D59 /* UIImageView+Extension.swift in Sources */,
 				DDB310A62A003B0200C11D59 /* UseCaseProvider.swift in Sources */,
 				DDB3104029FE800F00C11D59 /* ItemResponse.swift in Sources */,
 				DDB3108529FF152D00C11D59 /* Item.swift in Sources */,
 				DDB3104529FE834000C11D59 /* AbstractViewController.swift in Sources */,
 				DDB310AE2A00561E00C11D59 /* ItemViewModel.swift in Sources */,
 				DDB3108329FF103700C11D59 /* Constants.swift in Sources */,
+				DDB310D02A03E6D000C11D59 /* Constraints.swift in Sources */,
 				DDB3104F29FE887900C11D59 /* UIView+Extension.swift in Sources */,
 				DDB310AA2A003C8E00C11D59 /* AppUseCase.swift in Sources */,
 				DDB310A02A00306900C11D59 /* AppDataSource.swift in Sources */,
