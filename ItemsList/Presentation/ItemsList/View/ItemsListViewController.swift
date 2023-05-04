@@ -20,12 +20,29 @@ final class ItemsListViewController: AbstractViewController {
     // MARK: - Inherite
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
         setupCollectionView()
         bindViewModel()
         loadData()
     }
     
     // MARK: - Private
+    private func configureNavigationBar() {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "Filter"), for: .normal)
+        button.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
+        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        let barButtonItem = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem = barButtonItem
+        navigationItem.hidesBackButton = true
+    }
+    
+    @objc private func filterButtonTapped() {
+        // handle button tap
+    }
+    
     private func bindViewModel() {
         viewModel?.$items
             .receive(on: DispatchQueue.main)

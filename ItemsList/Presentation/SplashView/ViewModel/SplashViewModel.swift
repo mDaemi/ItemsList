@@ -14,7 +14,11 @@ final class SplashViewModel {
     
     // MARK: - Init
     init() {
-        self.navigator = AppNavigator(services: DataUseCaseProvider(), navigationController: UINavigationController())
+        if let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }), let navigationController = keyWindow.rootViewController as? UINavigationController {
+            self.navigator = AppNavigator(services: DataUseCaseProvider(), navigationController: navigationController)
+        } else {
+            self.navigator = AppNavigator(services: DataUseCaseProvider(), navigationController: UINavigationController())
+        }
     }
     
     // MARK: - Internal
