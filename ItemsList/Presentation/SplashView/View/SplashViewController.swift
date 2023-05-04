@@ -9,6 +9,7 @@ import UIKit
 
 final class SplashViewController: AbstractViewController {
     // MARK: - properties
+    var viewModel: LoadingViewModel!
     private var timer: Timer?
     private let splashImageView: UIImageView = {
         let imageView = UIImageView()

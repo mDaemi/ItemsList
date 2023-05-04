@@ -13,7 +13,7 @@ final class ItemsListViewController: AbstractViewController {
     fileprivate var categories: [CategoryUIModel] = []
     fileprivate var collectionView: UICollectionView!
     fileprivate let reuseIdentifier = "cell"
-    var viewModel: AppViewModel?
+    var viewModel: ItemsViewModel?
     
     // MARK: - Inherite
     override func viewDidLoad() {

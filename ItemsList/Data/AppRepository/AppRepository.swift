@@ -9,6 +9,7 @@ import Foundation
 
 class AppRepository: PAppRepository {
     // MARK: - Properties
+    static let shared = AppRepository()
     private let dataSource: AppDataSource = AppDataSource()
     
     // MARK: - public

@@ -45,12 +45,14 @@
 		DDB310A82A003B5500C11D59 /* PAppRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310A72A003B5500C11D59 /* PAppRepository.swift */; };
 		DDB310AA2A003C8E00C11D59 /* AppUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310A92A003C8E00C11D59 /* AppUseCase.swift */; };
 		DDB310AC2A00552B00C11D59 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310AB2A00552B00C11D59 /* ItemCollectionViewCell.swift */; };
-		DDB310AE2A00561E00C11D59 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310AD2A00561E00C11D59 /* AppViewModel.swift */; };
-		DDB310B02A0056CC00C11D59 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310AF2A0056CC00C11D59 /* AppNavigator.swift */; };
+		DDB310AE2A00561E00C11D59 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310AD2A00561E00C11D59 /* ItemViewModel.swift */; };
 		DDB310B22A0059C500C11D59 /* AbstractNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310B12A0059C500C11D59 /* AbstractNavigator.swift */; };
 		DDB310B42A005A4100C11D59 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310B32A005A4100C11D59 /* ItemDetailViewController.swift */; };
 		DDB310B62A00694400C11D59 /* Foundation+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310B52A00694400C11D59 /* Foundation+Utils.swift */; };
 		DDB310B82A006C2D00C11D59 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310B72A006C2D00C11D59 /* SplashViewController.swift */; };
+		DDB310C22A03A1BD00C11D59 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310C12A03A1BD00C11D59 /* SplashViewModel.swift */; };
+		DDB310CA2A03A4F400C11D59 /* DataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310C92A03A4F400C11D59 /* DataUseCaseProvider.swift */; };
+		DDB310CC2A03A99B00C11D59 /* SplashNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310CB2A03A99B00C11D59 /* SplashNavigator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,12 +116,14 @@
 		DDB310A72A003B5500C11D59 /* PAppRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppRepository.swift; sourceTree = "<group>"; };
 		DDB310A92A003C8E00C11D59 /* AppUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUseCase.swift; sourceTree = "<group>"; };
 		DDB310AB2A00552B00C11D59 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		DDB310AD2A00561E00C11D59 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
-		DDB310AF2A0056CC00C11D59 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
+		DDB310AD2A00561E00C11D59 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		DDB310B12A0059C500C11D59 /* AbstractNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractNavigator.swift; sourceTree = "<group>"; };
 		DDB310B32A005A4100C11D59 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		DDB310B52A00694400C11D59 /* Foundation+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Utils.swift"; sourceTree = "<group>"; };
 		DDB310B72A006C2D00C11D59 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		DDB310C12A03A1BD00C11D59 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		DDB310C92A03A4F400C11D59 /* DataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseCaseProvider.swift; sourceTree = "<group>"; };
+		DDB310CB2A03A99B00C11D59 /* SplashNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,9 +207,10 @@
 				DDB3108229FF103700C11D59 /* Constants.swift */,
 				DDB3103229FE6F0900C11D59 /* Models */,
 				DDB3103329FE6F1800C11D59 /* Mappers */,
+				DDB310C82A03A4DB00C11D59 /* DI */,
 				DDB3103429FE6F2800C11D59 /* Service */,
-				DDB3109F2A00306900C11D59 /* AppDataSource.swift */,
-				DDB310A32A003AC800C11D59 /* AppRepository.swift */,
+				DDB310C32A03A1D200C11D59 /* AppDataSource */,
+				DDB310C42A03A1E000C11D59 /* AppRepository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -213,9 +218,9 @@
 		DDB3101F29FE685F00C11D59 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				DDB310A52A003B0200C11D59 /* UseCaseProvider.swift */,
-				DDB310A72A003B5500C11D59 /* PAppRepository.swift */,
-				DDB310A92A003C8E00C11D59 /* AppUseCase.swift */,
+				DDB310C52A03A47300C11D59 /* DI */,
+				DDB310C62A03A48500C11D59 /* Repository */,
+				DDB310C72A03A4A900C11D59 /* UseCase */,
 				DDB3103729FE6F6100C11D59 /* Models */,
 				DDB3109129FF1A4D00C11D59 /* Mappers */,
 			);
@@ -229,12 +234,9 @@
 				DDB3108C29FF18BC00C11D59 /* Models */,
 				DDB3102A29FE6D1400C11D59 /* Constants */,
 				DDB3103A29FE6FA700C11D59 /* Utils */,
-				6C1B233E29FE5235009BFB6B /* ItemsListViewController.swift */,
-				DDB310AB2A00552B00C11D59 /* ItemCollectionViewCell.swift */,
-				DDB310AD2A00561E00C11D59 /* AppViewModel.swift */,
-				DDB310AF2A0056CC00C11D59 /* AppNavigator.swift */,
-				DDB310B32A005A4100C11D59 /* ItemDetailViewController.swift */,
-				DDB310B72A006C2D00C11D59 /* SplashViewController.swift */,
+				DDB310BC2A03A17D00C11D59 /* ItemDetail */,
+				DDB310B92A03A11A00C11D59 /* ItemsList */,
+				DDB310BE2A03A19400C11D59 /* SplashView */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -359,6 +361,122 @@
 				DDB3109D2A001E9E00C11D59 /* AppError.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		DDB310B92A03A11A00C11D59 /* ItemsList */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310BB2A03A12A00C11D59 /* ViewModel */,
+				DDB310BA2A03A12400C11D59 /* View */,
+			);
+			path = ItemsList;
+			sourceTree = "<group>";
+		};
+		DDB310BA2A03A12400C11D59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C1B233E29FE5235009BFB6B /* ItemsListViewController.swift */,
+				DDB310AB2A00552B00C11D59 /* ItemCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDB310BB2A03A12A00C11D59 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310AD2A00561E00C11D59 /* ItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DDB310BC2A03A17D00C11D59 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310BD2A03A18900C11D59 /* View */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
+		DDB310BD2A03A18900C11D59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310B32A005A4100C11D59 /* ItemDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDB310BE2A03A19400C11D59 /* SplashView */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310BF2A03A1A300C11D59 /* View */,
+				DDB310C02A03A1AC00C11D59 /* ViewModel */,
+				DDB310CB2A03A99B00C11D59 /* SplashNavigator.swift */,
+			);
+			path = SplashView;
+			sourceTree = "<group>";
+		};
+		DDB310BF2A03A1A300C11D59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310B72A006C2D00C11D59 /* SplashViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDB310C02A03A1AC00C11D59 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310C12A03A1BD00C11D59 /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DDB310C32A03A1D200C11D59 /* AppDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				DDB3109F2A00306900C11D59 /* AppDataSource.swift */,
+			);
+			path = AppDataSource;
+			sourceTree = "<group>";
+		};
+		DDB310C42A03A1E000C11D59 /* AppRepository */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310A32A003AC800C11D59 /* AppRepository.swift */,
+			);
+			path = AppRepository;
+			sourceTree = "<group>";
+		};
+		DDB310C52A03A47300C11D59 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310A52A003B0200C11D59 /* UseCaseProvider.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		DDB310C62A03A48500C11D59 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310A72A003B5500C11D59 /* PAppRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DDB310C72A03A4A900C11D59 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310A92A003C8E00C11D59 /* AppUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		DDB310C82A03A4DB00C11D59 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310C92A03A4F400C11D59 /* DataUseCaseProvider.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,7 +613,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB3109529FF1A7D00C11D59 /* Category+Mapper.swift in Sources */,
+				DDB310C22A03A1BD00C11D59 /* SplashViewModel.swift in Sources */,
 				6C1B233F29FE5235009BFB6B /* ItemsListViewController.swift in Sources */,
+				DDB310CA2A03A4F400C11D59 /* DataUseCaseProvider.swift in Sources */,
 				DDB3108E29FF18D800C11D59 /* ItemUIModel.swift in Sources */,
 				DDB310AC2A00552B00C11D59 /* ItemCollectionViewCell.swift in Sources */,
 				DDB310B82A006C2D00C11D59 /* SplashViewController.swift in Sources */,
@@ -506,8 +626,8 @@
 				DDB3108929FF16D000C11D59 /* ItemsResponse+Mapper.swift in Sources */,
 				DDB3109729FF1BA200C11D59 /* DateFormatter+Extension.swift in Sources */,
 				DDB310A42A003AC800C11D59 /* AppRepository.swift in Sources */,
+				DDB310CC2A03A99B00C11D59 /* SplashNavigator.swift in Sources */,
 				DDB3109029FF18EA00C11D59 /* CategoryUIModel.swift in Sources */,
-				DDB310B02A0056CC00C11D59 /* AppNavigator.swift in Sources */,
 				DDB3108129FF0F6700C11D59 /* AbstractService.swift in Sources */,
 				6C1B233B29FE5235009BFB6B /* AppDelegate.swift in Sources */,
 				DDB3105B29FEF98300C11D59 /* UIView+Loader.swift in Sources */,
@@ -525,7 +645,7 @@
 				DDB3104029FE800F00C11D59 /* ItemResponse.swift in Sources */,
 				DDB3108529FF152D00C11D59 /* Item.swift in Sources */,
 				DDB3104529FE834000C11D59 /* AbstractViewController.swift in Sources */,
-				DDB310AE2A00561E00C11D59 /* AppViewModel.swift in Sources */,
+				DDB310AE2A00561E00C11D59 /* ItemViewModel.swift in Sources */,
 				DDB3108329FF103700C11D59 /* Constants.swift in Sources */,
 				DDB3104F29FE887900C11D59 /* UIView+Extension.swift in Sources */,
 				DDB310AA2A003C8E00C11D59 /* AppUseCase.swift in Sources */,

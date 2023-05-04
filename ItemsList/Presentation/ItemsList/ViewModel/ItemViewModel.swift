@@ -1,5 +1,5 @@
 //
-//  AppViewModel.swift
+//  ItemsViewModel.swift
 //  ItemsList
 //
 //  Created by Maedeh DAEMI on 01/05/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AppViewModel {
+final class ItemsViewModel {
     // MARK: - Properties
     private var navigator: AppNavigator
     private let useCase: AppUseCase
@@ -25,10 +25,6 @@ final class AppViewModel {
     
     func getCategories() async throws -> [CategoryUIModel] {
         return try await useCase.loadCategories().map {$0.map {$0.toPresentation()}} ?? []
-    }
-    
-    func toItems() {
-        navigator.toItems()
     }
     
     func toItemDetail() {
