@@ -13,17 +13,29 @@ final class ItemsViewModel {
     // MARK: - Properties
     private var navigator: AppNavigator
     private let useCase: AppUseCase
+    var categoriesNames: [String] = []
     @Published var items: [ItemUIModel] = []
-    @Published var categories: [CategoryUIModel] = []
+    @Published var categories: [CategoryUIModel] = [] {
+        didSet {
+            categoriesNames = categories.compactMap({ category in
+                category.name
+            })
+            categoriesNames.append(localized("item.filter"))
+        }
+    }
     
     // MARK: - Init
     init(_ navigator: AppNavigator, _ useCase: AppUseCase) {
         self.navigator = navigator
         self.useCase = useCase
     }
-
+    
+    // MARK: - Internal
     func fetchItems() async throws {
-        items = try await useCase.loadItems().map {$0.map {$0.toPresentation()}} ?? []
+        var result = try await useCase.loadItems().map {$0.map {$0.toPresentation()}} ?? []
+        result = result.sorted(by: { $0.creation_date.compare($1.creation_date) == .orderedDescending })
+        result.sort { $0.is_urgent && !$1.is_urgent }
+        items = result
     }
     
     func fetchCategories() async throws {

@@ -121,6 +121,8 @@ final class ItemCollectionViewCell: UICollectionViewCell {
         
         if let isUrgent = item?.is_urgent, !isUrgent {
             urgentView.isHidden = true
+        } else {
+            urgentView.isHidden = false
         }
     }
 }

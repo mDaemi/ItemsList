@@ -10,11 +10,14 @@ import Combine
 
 final class ItemsListViewController: AbstractViewController {
     // MARK: - Properties
-    private var items: [ItemUIModel] = []
     private var categories: [CategoryUIModel] = []
     private var collectionView: UICollectionView!
     private let reuseIdentifier = "cell"
     private var observers: [AnyCancellable] = []
+    private var toolBar = UIToolbar()
+    private var picker  = UIPickerView()
+    private var filteredItems: [ItemUIModel] = []
+    private var filterWord: String?
     var viewModel: ItemsViewModel?
     
     // MARK: - Inherite
@@ -38,15 +41,12 @@ final class ItemsListViewController: AbstractViewController {
         navigationItem.rightBarButtonItem = barButtonItem
         navigationItem.hidesBackButton = true
     }
-    
-    @objc private func filterButtonTapped() {
-        
-    }
-    
+   
     private func bindViewModel() {
         viewModel?.$items
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
+                self?.filteredItems = items
                 self?.collectionView.reloadData()
             }
             .store(in: &observers)
@@ -74,7 +74,6 @@ final class ItemsListViewController: AbstractViewController {
             print("ViewModel is NULL.")
             return
         }
-        
         Task {
             do {
                 try await viewModel.fetchItems()
@@ -84,19 +83,54 @@ final class ItemsListViewController: AbstractViewController {
             }
         }
     }
+
+    // MARK: - Actions
+    @objc private func filterButtonTapped() {
+        picker = UIPickerView.init()
+        picker.delegate = self
+        picker.dataSource = self
+        picker.backgroundColor = UIColor.white
+        picker.setValue(UIColor.black, forKey: "textColor")
+        picker.autoresizingMask = .flexibleWidth
+        picker.contentMode = .center
+        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 200, width: UIScreen.main.bounds.size.width, height: 200)
+        self.view.addSubview(picker)
+        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 200, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+        self.view.addSubview(toolBar)
+    }
+    
+    @objc private func onDoneButtonTapped() {
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+        
+        guard let items = viewModel?.items else {
+            return
+        }
+        
+        if filterWord == localized("item.filter") {
+            filteredItems = items
+        } else {
+            filteredItems = items.filter({ item in
+                return item.category_name == filterWord
+            })
+        }
+        
+        collectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionViewDataSource
 extension ItemsListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.items.count ?? 0
+        return filteredItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ItemCollectionViewCell, let item = viewModel?.items[indexPath.row] else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ItemCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.item = item
+        cell.item = filteredItems[indexPath.row]
         return cell
     }
 }
@@ -109,4 +143,24 @@ extension ItemsListViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height)
     }
 }
+
+// MARK: - UIPickerView
+extension ItemsListViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+        
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return viewModel?.categoriesNames.count ?? 0
+    }
+        
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel?.categoriesNames[row] ?? ""
+    }
+        
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        filterWord = viewModel?.categoriesNames[row]
+    }
+}
+
 
