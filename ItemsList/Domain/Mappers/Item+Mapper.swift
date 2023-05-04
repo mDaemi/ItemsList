@@ -12,6 +12,7 @@ extension Item {
         return ItemUIModel(title: self.title,
                            description: self.description,
                            price: (self.price == nil) ? "" : String(self.price!) + " €",
+                           images_url: self.images_url,
                            creation_date: (self.creation_date == nil) ? "" :
                             DateFormatter.europeanFormat.string(from: self.creation_date!),
                            is_urgent: self.is_urgent,

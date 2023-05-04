@@ -16,7 +16,6 @@ class AppNavigator: AbstractNavigator, PAppNavigator {
     // MARK: - Internal
     func toItems() {
         let vc = ItemsListViewController()
-        let nc = UINavigationController()
         vc.viewModel = ItemsViewModel(self, DataUseCaseProvider().provideAppUseCase())
         getWindow()?.rootViewController = vc
     }

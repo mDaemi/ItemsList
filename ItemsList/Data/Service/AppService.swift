@@ -14,7 +14,7 @@ final class AppService: AbstractService {
 
     // MARK: - public
     public func getItems() async throws -> [ItemResponse]? {
-        var urlString = Constants.getUrlString(of: Constants.requests.items)
+        let urlString = Constants.getUrlString(of: Constants.requests.items)
         guard let url = URL(string: urlString) else {
             throw AppError.ServiceError.invalidData
         }
@@ -23,7 +23,9 @@ final class AppService: AbstractService {
         urlRequest.httpMethod = Constants.httpMethod.get
         if #available(iOS 15.0, *) {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            return try self.getDecoder().decode([ItemResponse].self, from: data)
+            let decoder = self.getDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            return try decoder.decode([ItemResponse].self, from: data)
         } else {
             return try await withCheckedThrowingContinuation({
                 (continuation: CheckedContinuation<[ItemResponse]?, Error>) in
@@ -39,7 +41,7 @@ final class AppService: AbstractService {
     }
     
     public func getCategories() async throws -> [CategoryResponse]? {
-        var urlString = Constants.getUrlString(of: Constants.requests.categories)
+        let urlString = Constants.getUrlString(of: Constants.requests.categories)
         guard let url = URL(string: urlString) else {
             throw AppError.ServiceError.invalidData
         }

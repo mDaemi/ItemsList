@@ -13,7 +13,8 @@ class AppDataSource {
 
     // MARK: - Public
     public func getItems() async throws -> [Item]? {
-        return try await service.getItems().map {$0.map {$0.toDomain()}}
+        let result = try await service.getItems().map {$0.map {$0.toDomain()}}
+        return result
     }
     
     public func getCategories() async throws -> [Category]? {

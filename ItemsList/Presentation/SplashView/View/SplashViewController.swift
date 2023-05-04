@@ -9,7 +9,7 @@ import UIKit
 
 final class SplashViewController: AbstractViewController {
     // MARK: - properties
-    var viewModel: LoadingViewModel!
+    var viewModel: SplashViewModel!
     private var timer: Timer?
     private let splashImageView: UIImageView = {
         let imageView = UIImageView()
@@ -21,12 +21,14 @@ final class SplashViewController: AbstractViewController {
     // MARK: - Inherits
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.viewModel = SplashViewModel()
         view.addSubview(splashImageView)
         splashImageView.constraintToSuperview()
         
-//        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { [weak self] _ in
-//            AppNavigator(services: UseCaseProvider(), navigationController: UINavigationController())
-//        })
+        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { [weak self] _ in
+            if let viewModel = self?.viewModel {
+                viewModel.toItems()
+            }
+        })
     }
 }
