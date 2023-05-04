@@ -18,12 +18,6 @@ class AppNavigator: AbstractNavigator, PAppNavigator {
         let vc = ItemsListViewController()
         vc.viewModel = ItemsViewModel(self, DataUseCaseProvider().provideAppUseCase())
         navigationController.pushViewController(vc, animated: true)
-//        getWindow()?.rootViewController = vc
-//
-//        let vc = ItemListViewController()
-//        let navigationVC = UINavigationController(rootViewController: vc)
-//        window?.rootViewController = navigationVC
-        
     }
     
     func toItemDetail() {

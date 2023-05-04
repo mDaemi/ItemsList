@@ -10,10 +10,10 @@ import Combine
 
 final class ItemsListViewController: AbstractViewController {
     // MARK: - Properties
-    fileprivate var items: [ItemUIModel] = []
-    fileprivate var categories: [CategoryUIModel] = []
-    fileprivate var collectionView: UICollectionView!
-    fileprivate let reuseIdentifier = "cell"
+    private var items: [ItemUIModel] = []
+    private var categories: [CategoryUIModel] = []
+    private var collectionView: UICollectionView!
+    private let reuseIdentifier = "cell"
     private var observers: [AnyCancellable] = []
     var viewModel: ItemsViewModel?
     
@@ -40,7 +40,7 @@ final class ItemsListViewController: AbstractViewController {
     }
     
     @objc private func filterButtonTapped() {
-        // handle button tap
+        
     }
     
     private func bindViewModel() {
@@ -80,7 +80,7 @@ final class ItemsListViewController: AbstractViewController {
                 try await viewModel.fetchItems()
                 try await viewModel.fetchCategories()
             } catch {
-                displaySnack(text: localized("error.service"), color: .red)
+                displaySnack(text: localized("error.service"))
             }
         }
     }

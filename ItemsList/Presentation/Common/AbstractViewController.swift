@@ -34,22 +34,14 @@ class AbstractViewController: UIViewController {
     }
 
     // MARK: - Public - Snack
-    func displaySnack(text: String, color: UIColor, closingTime: TimeInterval? = 3) {
+    func displaySnack(text: String, closingTime: TimeInterval? = 3) {
 
         if self.snack == nil {
             snack = SnackView()
-            snack!.initialize()
-
+            snack!.layer.cornerRadius = constraint.corderRadius
             self.view.addSubview(snack!)
             applySnackConstraint(to: snack!)
             self.view.layoutIfNeeded()
-            
-            snack!.layer.shadowColor = UIColor.black.cgColor
-            snack!.layer.shadowOpacity = 0.3
-            snack!.layer.shadowOffset = CGSize(width: -4, height: 4)
-            snack!.layer.shadowRadius = 3
-            snack!.layer.shadowPath = UIBezierPath(rect: snack!.bounds).cgPath
-
         } else {
             // cancel the previous perform to avoid closing before its time
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.closeSnack), object: nil)
