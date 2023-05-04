@@ -28,6 +28,17 @@ final class ItemsViewModel {
     
     func fetchCategories() async throws {
         categories = try await useCase.loadCategories().map {$0.map {$0.toPresentation()}} ?? []
+        updateItems()
+    }
+    
+    func updateItems() {
+        var index = 0
+        for item in items {
+            if let category = categories.first (where:{ $0.id == item.category_id }) {
+                items[index].category_name = category.name
+                index = index + 1
+            }
+        }
     }
     
     func toItemDetail() {

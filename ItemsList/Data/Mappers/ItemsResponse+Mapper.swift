@@ -16,7 +16,6 @@ extension ItemResponse {
                     price: self.price,
                     images_url: self.images_url,
                     creation_date: self.creation_date,
-                    is_urgent: self.is_urgent ?? false,
-                    category_name: self.category_name ?? "")
+                    is_urgent: self.is_urgent ?? false)
     }
 }

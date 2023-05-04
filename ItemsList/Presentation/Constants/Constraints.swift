@@ -14,5 +14,6 @@ extension Constants {
     struct Constraint {
         static let padding: CGFloat = CGFloat(8)
         static let corderRadius: CGFloat = CGFloat(8)
+        static let betweenlblPadding: CGFloat = CGFloat(4)
     }
 }

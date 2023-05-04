@@ -16,6 +16,7 @@ extension Item {
                            creation_date: (self.creation_date == nil) ? "" :
                             DateFormatter.europeanFormat.string(from: self.creation_date!),
                            is_urgent: self.is_urgent,
-                           category_name: self.category_name)
+                           category_name: "",
+                           category_id: self.category_id)
     }
 }

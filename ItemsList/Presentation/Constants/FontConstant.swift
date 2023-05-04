@@ -27,7 +27,7 @@ public enum FontConstant: String {
       case .boldMedium:
         font = UIFont.boldSystemFont(ofSize: 16)
       case .boldNormal:
-        font = UIFont.boldSystemFont(ofSize: 12)
+        font = UIFont.boldSystemFont(ofSize: 13)
       case .mediumBig:
         font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
       case .mediumNormal:
@@ -39,7 +39,7 @@ public enum FontConstant: String {
       case .regularNormal:
         font = UIFont.systemFont(ofSize: 16)
       case .regularSmall:
-        font = UIFont.systemFont(ofSize: 14)
+        font = UIFont.systemFont(ofSize: 12)
       case .regularTiny:
         font = UIFont.systemFont(ofSize: 11)
       }

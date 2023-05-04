@@ -16,5 +16,4 @@ struct Item {
     var images_url: ImagesUrl?
     var creation_date: Date?
     let is_urgent: Bool
-    let category_name: String
 }

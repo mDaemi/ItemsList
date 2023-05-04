@@ -16,7 +16,6 @@ struct ItemResponse: Codable {
     var images_url: ImagesUrl?
     var creation_date: Date?
     var is_urgent: Bool?
-    var category_name: String?
 }
 
 struct ImagesUrl: Codable {

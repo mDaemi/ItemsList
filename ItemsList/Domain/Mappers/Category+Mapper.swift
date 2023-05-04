@@ -9,6 +9,6 @@ import Foundation
 
 extension Category {
     func toPresentation() -> CategoryUIModel {
-        return CategoryUIModel(name: self.name)
+        return CategoryUIModel(name: self.name, id: self.id)
     }
 }

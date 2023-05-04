@@ -9,4 +9,5 @@ import Foundation
 
 struct CategoryUIModel {
     let name: String
+    let id: Int
 }

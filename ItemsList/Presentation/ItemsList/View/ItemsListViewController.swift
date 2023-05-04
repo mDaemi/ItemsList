@@ -88,7 +88,6 @@ extension ItemsListViewController: UICollectionViewDataSource {
 extension ItemsListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 30) / 2
-        // the cell's height is 1.5 times its width
         let height = width * 1.5
         return CGSize(width: width, height: height)
     }

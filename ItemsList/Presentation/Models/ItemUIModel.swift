@@ -14,5 +14,6 @@ struct ItemUIModel {
     var images_url: ImagesUrl?
     var creation_date: String
     let is_urgent: Bool
-    let category_name: String
+    var category_name: String
+    let category_id: Int
 }
