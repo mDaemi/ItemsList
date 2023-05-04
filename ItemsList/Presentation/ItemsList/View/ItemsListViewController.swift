@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class ItemsListViewController: AbstractViewController {
     // MARK: - Properties
@@ -14,15 +15,38 @@ final class ItemsListViewController: AbstractViewController {
     fileprivate var collectionView: UICollectionView!
     fileprivate let reuseIdentifier = "cell"
     var viewModel: ItemsViewModel?
+    var observers: [AnyCancellable] = []
     
     // MARK: - Inherite
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        bindViewModel()
         loadData()
     }
     
     // MARK: - Private
+    private func bindViewModel() {
+        Task {
+            await viewModel?.fetchItems()
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        print("finished")
+                    case .failure(let error):
+                        print(error)
+                    }
+                }, receiveValue: { [weak self] value in
+                    self?.items = value
+                    self?.collectionView.reloadData()
+                }).store(in: &observers)
+        }
+    }
+    
+    private func renderPosts(item: ItemUIModel) {
+        
+    }
+    
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -48,7 +72,7 @@ final class ItemsListViewController: AbstractViewController {
         
         Task {
             do {
-                self.items = try await viewModel.getItems()
+//                self.items = try await viewModel.getItems()
                 self.categories = try await viewModel.getCategories()
             } catch {
                 displaySnack(text: localized("error.service"), color: .red)

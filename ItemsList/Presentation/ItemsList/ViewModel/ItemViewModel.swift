@@ -6,21 +6,33 @@
 //
 
 import Foundation
+import Combine
 
 final class ItemsViewModel {
+    
     // MARK: - Properties
     private var navigator: AppNavigator
     private let useCase: AppUseCase
+    @Published private(set) var items: [ItemUIModel] = []
+
     
     // MARK: - Init
     init(_ navigator: AppNavigator, _ useCase: AppUseCase) {
         self.navigator = navigator
         self.useCase = useCase
     }
-    
-    // MARK: - Public
-    func getItems() async throws -> [ItemUIModel] {
-        return try await useCase.loadItems().map {$0.map {$0.toPresentation()}} ?? []
+
+    func fetchItems() async -> Future<[ItemUIModel], Error> {
+        do {
+            let result = try await useCase.loadItems().map {$0.map {$0.toPresentation()}} ?? []
+            return Future { promixe in
+                promixe(.success(result))
+            }
+        } catch {
+            return Future { promixe in
+                promixe(.failure(error))
+            }
+        }
     }
     
     func getCategories() async throws -> [CategoryUIModel] {
