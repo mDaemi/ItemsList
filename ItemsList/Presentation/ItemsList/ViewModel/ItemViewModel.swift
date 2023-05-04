@@ -13,8 +13,8 @@ final class ItemsViewModel {
     // MARK: - Properties
     private var navigator: AppNavigator
     private let useCase: AppUseCase
-    @Published private(set) var items: [ItemUIModel] = []
-
+    @Published var items: [ItemUIModel] = []
+    @Published var categories: [CategoryUIModel] = []
     
     // MARK: - Init
     init(_ navigator: AppNavigator, _ useCase: AppUseCase) {
@@ -22,21 +22,12 @@ final class ItemsViewModel {
         self.useCase = useCase
     }
 
-    func fetchItems() async -> Future<[ItemUIModel], Error> {
-        do {
-            let result = try await useCase.loadItems().map {$0.map {$0.toPresentation()}} ?? []
-            return Future { promixe in
-                promixe(.success(result))
-            }
-        } catch {
-            return Future { promixe in
-                promixe(.failure(error))
-            }
-        }
+    func fetchItems() async throws {
+        items = try await useCase.loadItems().map {$0.map {$0.toPresentation()}} ?? []
     }
     
-    func getCategories() async throws -> [CategoryUIModel] {
-        return try await useCase.loadCategories().map {$0.map {$0.toPresentation()}} ?? []
+    func fetchCategories() async throws {
+        categories = try await useCase.loadCategories().map {$0.map {$0.toPresentation()}} ?? []
     }
     
     func toItemDetail() {

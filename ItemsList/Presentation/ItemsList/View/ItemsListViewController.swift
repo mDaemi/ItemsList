@@ -14,8 +14,8 @@ final class ItemsListViewController: AbstractViewController {
     fileprivate var categories: [CategoryUIModel] = []
     fileprivate var collectionView: UICollectionView!
     fileprivate let reuseIdentifier = "cell"
+    private var observers: [AnyCancellable] = []
     var viewModel: ItemsViewModel?
-    var observers: [AnyCancellable] = []
     
     // MARK: - Inherite
     override func viewDidLoad() {
@@ -27,24 +27,11 @@ final class ItemsListViewController: AbstractViewController {
     
     // MARK: - Private
     private func bindViewModel() {
-        Task {
-            await viewModel?.fetchItems()
-                .sink(receiveCompletion: { completion in
-                    switch completion {
-                    case .finished:
-                        print("finished")
-                    case .failure(let error):
-                        print(error)
-                    }
-                }, receiveValue: { [weak self] value in
-                    self?.items = value
-                    self?.collectionView.reloadData()
-                }).store(in: &observers)
-        }
-    }
-    
-    private func renderPosts(item: ItemUIModel) {
-        
+        viewModel?.$items
+            .sink { [weak self] items in
+                self?.collectionView.reloadData()
+            }
+            .store(in: &observers)
     }
     
     private func setupCollectionView() {
@@ -72,8 +59,8 @@ final class ItemsListViewController: AbstractViewController {
         
         Task {
             do {
-//                self.items = try await viewModel.getItems()
-                self.categories = try await viewModel.getCategories()
+                try await viewModel.fetchItems()
+                try await viewModel.fetchCategories()
             } catch {
                 displaySnack(text: localized("error.service"), color: .red)
             }
