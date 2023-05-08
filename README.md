@@ -22,4 +22,4 @@ In addition, it includes unit tests to ensure the functionality of the app.
 
 # IMPLEMENTATION
 
-![itemsList](https://user-images.githubusercontent.com/31176385/236805193-c9504d25-f77c-4d13-a3af-4c9ba4afa046.gif)
+![ItemsList](https://user-images.githubusercontent.com/31176385/236812105-454d2356-0eab-4899-9b33-65598fd0e005.gif)
