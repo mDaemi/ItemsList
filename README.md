@@ -2,8 +2,11 @@
 The project is executable on the Master branch.
 
 Programming language: swift
+
 Minimum deployment target: iOS 14.0
+
 Supperted destinations: iPhone, iPad
+
 This iOS application is designed to display a list of items and their details. 
 The project uses the MVVM and Clean Architecture patterns to provide a clear separation of concerns between the different components of the app. 
 In addition, it includes unit tests to ensure the functionality of the app.
