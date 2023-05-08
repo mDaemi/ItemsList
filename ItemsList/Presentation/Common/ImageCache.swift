@@ -7,10 +7,4 @@
 
 import UIKit
 
-//struct Cache {
-//    public var imageCache: NSCache<NSString, UIImage> = {
-//        return NSCache<NSString, UIImage>()
-//    }()
-//}
-
 var imageCache = NSCache<NSString, UIImage>()

@@ -8,7 +8,6 @@
 import UIKit
 
 class RColorSet: NSObject {
-
     func colors() -> [String: String] {
         var colors = [String: String]()
         let children = Mirror(reflecting: self).children
@@ -22,15 +21,16 @@ class RColorSet: NSObject {
 }
 
 class ColorManager: NSObject {
-
+    // MARK: - Properties
     var colorSet: PColorSet
-
     static let shared: ColorManager = ColorManager()
 
+    // MARK: - Private
     private override init() {
         colorSet = ColorSet()
     }
 
+    // MARK: - Internal
     func color (_ id: String) -> UIColor {
         let retrievedColor: [String: String] = self.colorSet.colors()
         var color = UIColor.white

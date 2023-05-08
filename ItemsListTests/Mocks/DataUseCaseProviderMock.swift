@@ -9,11 +9,7 @@ import Foundation
 @testable import ItemsList
 
 class DataUseCaseProviderMock: UseCaseProvider {
-    public func provideAppUseCase() -> AppUseCase {
-        return AppUseCase(repository: AppRepository.shared)
-    }
-    
-    public func provideAppUseCaseMock() -> AppUseCaseMock {
+    func provideAppUseCase() -> PAppUseCase {
         return AppUseCaseMock(repository: AppRepository.shared)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 @testable import ItemsList
 
-class AppUseCaseMock {
+class AppUseCaseMock: PAppUseCase {
     // MARK: - properties
     let repository: PAppRepository
     
@@ -19,18 +19,18 @@ class AppUseCaseMock {
     
     // MARK: - Internals
     func loadItems() async throws -> [Item]? {
-        return try await self.repository.getItems()
-    }
-    
-    func loadItemsError() async throws -> [Item]? {
-        throw AppError.ServiceError.invalidData
+        // Test error
+        // throw AppError.ServiceError.invalidData
+        
+        // Test call
+        return []
     }
     
     func loadCategories() async throws -> [ItemCategory]? {
-        return try await self.repository.getCategories()
-    }
-    
-    func loadCategoriesError() async throws -> [ItemCategory]? {
-        throw AppError.ServiceError.invalidData
+        // Test error
+        // throw AppError.ServiceError.invalidData
+        
+        // Test call
+         return []
     }
 }

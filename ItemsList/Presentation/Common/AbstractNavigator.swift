@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AbstractNavigator {
+public class AbstractNavigator {
     internal let navigationController: UINavigationController
     internal let services: UseCaseProvider
 

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ItemUIModel: Equatable {
-    static func == (lhs: ItemUIModel, rhs: ItemUIModel) -> Bool {
+public struct ItemUIModel: Equatable {
+    public static func == (lhs: ItemUIModel, rhs: ItemUIModel) -> Bool {
         return lhs.id == rhs.id
     }
     

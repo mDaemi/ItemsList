@@ -7,7 +7,12 @@
 
 import Foundation
 
-class AppUseCase {
+protocol PAppUseCase {
+    func loadItems() async throws -> [Item]?
+    func loadCategories() async throws -> [ItemCategory]?
+}
+
+class AppUseCase: PAppUseCase {
     // MARK: - properties
     let repository: PAppRepository
     

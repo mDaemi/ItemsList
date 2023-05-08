@@ -8,14 +8,6 @@
 import UIKit
 
 extension UIView {
-
-    // MARK: Subviews
-    func removeAllSubviews() {
-        for view: UIView in self.subviews {
-            view.removeFromSuperview()
-        }
-    }
-
     // MARK: Constraints
     @discardableResult func constraintToSuperview(top: CGFloat? = 0,
                                                   bottom: CGFloat? = 0,

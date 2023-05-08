@@ -58,9 +58,9 @@
 		DDB310D22A03F68F00C11D59 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D12A03F68F00C11D59 /* UIImageView+Extension.swift */; };
 		DDB310D42A04524900C11D59 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D32A04524900C11D59 /* PickerView.swift */; };
 		DDB310D72A07D3A200C11D59 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D62A07D3A200C11D59 /* ImageCache.swift */; };
-		DDB310DA2A07EB7000C11D59 /* AppServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D92A07EB7000C11D59 /* AppServiceMock.swift */; };
 		DDB310DF2A09281A00C11D59 /* DataUseCaseProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310DE2A09281A00C11D59 /* DataUseCaseProviderMock.swift */; };
 		DDB310E12A092CA200C11D59 /* AppUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310E02A092CA200C11D59 /* AppUseCaseMock.swift */; };
+		DDB310E42A0939EE00C11D59 /* AppNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310E32A0939EE00C11D59 /* AppNavigatorMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,9 +137,9 @@
 		DDB310D12A03F68F00C11D59 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		DDB310D32A04524900C11D59 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		DDB310D62A07D3A200C11D59 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		DDB310D92A07EB7000C11D59 /* AppServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceMock.swift; sourceTree = "<group>"; };
 		DDB310DE2A09281A00C11D59 /* DataUseCaseProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseCaseProviderMock.swift; sourceTree = "<group>"; };
 		DDB310E02A092CA200C11D59 /* AppUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUseCaseMock.swift; sourceTree = "<group>"; };
+		DDB310E32A0939EE00C11D59 /* AppNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigatorMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				DDB310DD2A09280B00C11D59 /* Mocks */,
-				DDB310D92A07EB7000C11D59 /* AppServiceMock.swift */,
 				6C1B235129FE5236009BFB6B /* ItemsListTests.swift */,
 			);
 			path = ItemsListTests;
@@ -507,6 +506,7 @@
 			children = (
 				DDB310DE2A09281A00C11D59 /* DataUseCaseProviderMock.swift */,
 				DDB310E02A092CA200C11D59 /* AppUseCaseMock.swift */,
+				DDB310E32A0939EE00C11D59 /* AppNavigatorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -697,7 +697,7 @@
 			files = (
 				6C1B235229FE5236009BFB6B /* ItemsListTests.swift in Sources */,
 				DDB310DF2A09281A00C11D59 /* DataUseCaseProviderMock.swift in Sources */,
-				DDB310DA2A07EB7000C11D59 /* AppServiceMock.swift in Sources */,
+				DDB310E42A0939EE00C11D59 /* AppNavigatorMock.swift in Sources */,
 				DDB310E12A092CA200C11D59 /* AppUseCaseMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

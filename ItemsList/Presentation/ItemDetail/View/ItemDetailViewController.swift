@@ -94,6 +94,17 @@ final class ItemDetailViewController: AbstractViewController {
         return view
     }()
     
+    // MARK: - INIT
+    init(_ item: ItemUIModel) {
+        self.item = item
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Inherites
     override func loadView() {
         let width = UIScreen.main.bounds.width
         view = UIView()
@@ -132,16 +143,6 @@ final class ItemDetailViewController: AbstractViewController {
         dateLabel.anchor(top: titleLabel.bottomAnchor, left: nil, bottom: nil, right:  containerView.rightAnchor, paddingTop: constraint.padding, paddingLeft: 0, paddingBottom: 0, paddingRight: constraint.paddingBig)
         
         descriptionLabel.anchor(top: priceLabel.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right:  containerView.rightAnchor, paddingTop: constraint.paddingNormal, paddingLeft: constraint.paddingBig, paddingBottom: constraint.paddingBig, paddingRight: constraint.paddingBig)
-    }
-    
-    // MARK: - INIT
-    init(_ item: ItemUIModel) {
-        self.item = item
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {

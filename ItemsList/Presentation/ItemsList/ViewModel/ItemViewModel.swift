@@ -12,7 +12,7 @@ public class ItemsViewModel {
     
     // MARK: - Properties
     private var navigator: AppNavigator
-    private let useCase: AppUseCase
+    private let useCase: PAppUseCase
     var categoriesNames: [String] = []
     @Published var items: [ItemUIModel] = []
     @Published var categories: [CategoryUIModel] = [] {
@@ -25,7 +25,7 @@ public class ItemsViewModel {
     }
     
     // MARK: - Init
-    init(_ navigator: AppNavigator, _ useCase: AppUseCase) {
+    init(_ navigator: AppNavigator, _ useCase: PAppUseCase) {
         self.navigator = navigator
         self.useCase = useCase
     }

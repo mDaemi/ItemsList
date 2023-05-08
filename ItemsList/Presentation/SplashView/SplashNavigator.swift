@@ -12,15 +12,15 @@ protocol PAppNavigator {
     func toDetails(of item: ItemUIModel)
 }
 
-class AppNavigator: AbstractNavigator, PAppNavigator {
+public class AppNavigator: AbstractNavigator, PAppNavigator {
     // MARK: - Internal
-    func toItems() {
+    public func toItems() {
         let vc = ItemsListViewController()
         vc.viewModel = ItemsViewModel(self, DataUseCaseProvider().provideAppUseCase())
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func toDetails(of item: ItemUIModel) {
+    public func toDetails(of item: ItemUIModel) {
         let vc = ItemDetailViewController(item)
         navigationController.pushViewController(vc, animated: true)
     }

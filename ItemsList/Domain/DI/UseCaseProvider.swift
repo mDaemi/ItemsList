@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol UseCaseProvider {
-    func provideAppUseCase() -> AppUseCase
+    func provideAppUseCase() -> PAppUseCase
 }

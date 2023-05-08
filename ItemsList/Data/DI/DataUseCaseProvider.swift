@@ -8,7 +8,7 @@
 import Foundation
 
 class DataUseCaseProvider: UseCaseProvider {
-    func provideAppUseCase() -> AppUseCase {
+    func provideAppUseCase() -> PAppUseCase {
         return AppUseCase(repository: AppRepository.shared)
     }
 }

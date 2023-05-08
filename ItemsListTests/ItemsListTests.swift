@@ -9,27 +9,47 @@ import XCTest
 @testable import ItemsList
 
 final class ItemsListTests: XCTestCase {
-
+    // MARK: - Properties
+    var viewModel: ItemsViewModel?
+    var navigator: AppNavigatorMock?
+    
+    // MARK: - Inherite
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        navigator = AppNavigatorMock(services: DataUseCaseProviderMock(), navigationController: UINavigationController())
+        viewModel = ItemsViewModel(navigator!, DataUseCaseProviderMock().provideAppUseCase())
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testViewModel_GetItems() {
+        Task {
+            do {
+                try await viewModel?.fetchItems()
+                XCTAssertTrue(viewModel?.items.count == 0)
+            } catch {
+                XCTFail()
+            }
+        }
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testViewModel_GetCategories() {
+        Task {
+            do {
+                try await viewModel?.fetchCategories()
+                XCTAssertTrue(viewModel?.categories.count == 0)
+            } catch {
+                XCTFail()
+            }
+        }
+    }
+    
+    // Test navigation to the ItemDetails ViewController
+    func testNavigator() throws {
+        navigator?.toDetails(of: ItemUIModel(id: 1, title: "", description: "", price: "", creation_date: "", is_urgent: false, category_name: "", category_id: 1))
+        guard (navigator?.pushedViewController as? ItemDetailViewController) != nil else {
+            throw AppError.FunctionalError.general(message: "Unexpected Nil Error")
         }
     }
 }

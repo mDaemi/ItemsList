@@ -9,7 +9,6 @@ import UIKit
 import Combine
 
 final class PickerView: UIView {
-    
     // MARK: - Properties
     var picker: UIPickerView = UIPickerView.init()
     @Published var didSelect: Bool = false
