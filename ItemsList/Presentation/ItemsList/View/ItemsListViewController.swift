@@ -78,6 +78,10 @@ final class ItemsListViewController: AbstractViewController {
         view.layoutSubviews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+       navigationController?.isNavigationBarHidden = false
+    }
+    
     // MARK: - Private
     private func bindViewModel() {
         viewModel?.$items

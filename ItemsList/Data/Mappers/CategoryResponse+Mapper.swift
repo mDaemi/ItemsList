@@ -8,8 +8,8 @@
 import Foundation
 
 extension CategoryResponse {
-    func toDomain() -> Category {
-        return Category(id: self.id ?? -1,
+    func toDomain() -> ItemCategory {
+        return ItemCategory(id: self.id ?? -1,
                         name: self.name ?? "")
     }
 }

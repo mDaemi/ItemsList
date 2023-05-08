@@ -17,7 +17,7 @@ class AppRepository: PAppRepository {
         return try await dataSource.getItems()
     }
     
-    public func getCategories() async throws -> [Category]? {
+    public func getCategories() async throws -> [ItemCategory]? {
         return try await dataSource.getCategories()
     }
 }

@@ -59,6 +59,8 @@
 		DDB310D42A04524900C11D59 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D32A04524900C11D59 /* PickerView.swift */; };
 		DDB310D72A07D3A200C11D59 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D62A07D3A200C11D59 /* ImageCache.swift */; };
 		DDB310DA2A07EB7000C11D59 /* AppServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310D92A07EB7000C11D59 /* AppServiceMock.swift */; };
+		DDB310DF2A09281A00C11D59 /* DataUseCaseProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310DE2A09281A00C11D59 /* DataUseCaseProviderMock.swift */; };
+		DDB310E12A092CA200C11D59 /* AppUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB310E02A092CA200C11D59 /* AppUseCaseMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,8 @@
 		DDB310D32A04524900C11D59 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		DDB310D62A07D3A200C11D59 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		DDB310D92A07EB7000C11D59 /* AppServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceMock.swift; sourceTree = "<group>"; };
+		DDB310DE2A09281A00C11D59 /* DataUseCaseProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseCaseProviderMock.swift; sourceTree = "<group>"; };
+		DDB310E02A092CA200C11D59 /* AppUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUseCaseMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 		6C1B235029FE5236009BFB6B /* ItemsListTests */ = {
 			isa = PBXGroup;
 			children = (
+				DDB310DD2A09280B00C11D59 /* Mocks */,
 				DDB310D92A07EB7000C11D59 /* AppServiceMock.swift */,
 				6C1B235129FE5236009BFB6B /* ItemsListTests.swift */,
 			);
@@ -497,6 +502,15 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		DDB310DD2A09280B00C11D59 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				DDB310DE2A09281A00C11D59 /* DataUseCaseProviderMock.swift */,
+				DDB310E02A092CA200C11D59 /* AppUseCaseMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -682,7 +696,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C1B235229FE5236009BFB6B /* ItemsListTests.swift in Sources */,
+				DDB310DF2A09281A00C11D59 /* DataUseCaseProviderMock.swift in Sources */,
 				DDB310DA2A07EB7000C11D59 /* AppServiceMock.swift in Sources */,
+				DDB310E12A092CA200C11D59 /* AppUseCaseMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,7 +798,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -837,7 +853,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -869,6 +885,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MyProject.ItemsList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -897,6 +916,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MyProject.ItemsList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -18,31 +18,35 @@ public enum FontConstant: String {
     case regularNormal = "regularNormal"
     case regularSmall = "regularSmall"
     case regularTiny = "regularTiny"
-
+    
     public func getFont() -> UIFont {
         var font: UIFont = UIFont.systemFont(ofSize: 14)
-      switch self {
-      case .boldBig:
-        font = UIFont.boldSystemFont(ofSize: 20)
-      case .boldMedium:
-        font = UIFont.boldSystemFont(ofSize: 16)
-      case .boldNormal:
-        font = UIFont.boldSystemFont(ofSize: 13)
-      case .mediumBig:
-        font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
-      case .mediumNormal:
-        font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
-      case .mediumSuperTiny:
-        font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.medium)
-      case .regularMedium:
-        font = UIFont.systemFont(ofSize: 18)
-      case .regularNormal:
-        font = UIFont.systemFont(ofSize: 16)
-      case .regularSmall:
-        font = UIFont.systemFont(ofSize: 12)
-      case .regularTiny:
-        font = UIFont.systemFont(ofSize: 11)
-      }
-      return font
+        var device: UIUserInterfaceIdiom = .phone
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            device = .pad
+        }
+        switch self {
+        case .boldBig:
+            font = UIFont.boldSystemFont(ofSize: (device == .pad) ? 40 : 20)
+        case .boldMedium:
+            font = UIFont.boldSystemFont(ofSize: (device == .pad) ? 32 : 16)
+        case .boldNormal:
+            font = UIFont.boldSystemFont(ofSize: (device == .pad) ? 26 : 13)
+        case .mediumBig:
+            font = UIFont.systemFont(ofSize: (device == .pad) ? 40 : 20, weight: UIFont.Weight.medium)
+        case .mediumNormal:
+            font = UIFont.systemFont(ofSize: (device == .pad) ? 32 : 16, weight: UIFont.Weight.medium)
+        case .mediumSuperTiny:
+            font = UIFont.systemFont(ofSize: (device == .pad) ? 20 : 10, weight: UIFont.Weight.medium)
+        case .regularMedium:
+            font = UIFont.systemFont(ofSize: (device == .pad) ? 36 : 18)
+        case .regularNormal:
+            font = UIFont.systemFont(ofSize: (device == .pad) ? 32 : 16)
+        case .regularSmall:
+            font = UIFont.systemFont(ofSize: (device == .pad) ? 24 : 12)
+        case .regularTiny:
+            font = UIFont.systemFont(ofSize: (device == .pad) ? 22 : 11)
+        }
+        return font
     }
 }

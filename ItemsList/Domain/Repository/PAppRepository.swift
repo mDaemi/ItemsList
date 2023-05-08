@@ -9,5 +9,5 @@ import Foundation
 
 protocol PAppRepository {
     func getItems() async throws -> [Item]?
-    func getCategories() async throws -> [Category]?
+    func getCategories() async throws -> [ItemCategory]?
 }

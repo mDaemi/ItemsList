@@ -1,13 +1,14 @@
 //
-//  AppUseCase.swift
-//  ItemsList
+//  AppUseCaseMock.swift
+//  ItemsListTests
 //
-//  Created by Maedeh DAEMI on 01/05/2023.
+//  Created by Maedeh DAEMI on 08/05/2023.
 //
 
 import Foundation
+@testable import ItemsList
 
-class AppUseCase {
+class AppUseCaseMock {
     // MARK: - properties
     let repository: PAppRepository
     
@@ -21,7 +22,15 @@ class AppUseCase {
         return try await self.repository.getItems()
     }
     
+    func loadItemsError() async throws -> [Item]? {
+        throw AppError.ServiceError.invalidData
+    }
+    
     func loadCategories() async throws -> [ItemCategory]? {
         return try await self.repository.getCategories()
+    }
+    
+    func loadCategoriesError() async throws -> [ItemCategory]? {
+        throw AppError.ServiceError.invalidData
     }
 }

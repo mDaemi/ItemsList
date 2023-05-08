@@ -55,19 +55,17 @@ final class ItemCollectionViewCell: UICollectionViewCell {
     }()
 
     private let urgentView : UIView = {
-        let view = UIView()
-        view.frame.size.width = 150
-        view.frame.size.height = 20
+        let uview = UIView()
         let textLabel = UILabel()
-        textLabel.text = "urgent"
+        textLabel.text = localized("item.urgent")
         textLabel.textAlignment = .center
         textLabel.font = FontConstant.boldNormal.getFont()
         textLabel.textColor = ColorManager.shared.color("softBlack")
-        view.addSubview(textLabel)
-        textLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 3, paddingLeft: constraint.padding, paddingBottom: 3, paddingRight: constraint.padding)
-        view.backgroundColor = ColorManager.shared.color("lightRed")
-        view.layer.cornerRadius = constraint.corderRadius
-        return view
+        uview.addSubview(textLabel)
+        textLabel.anchor(top: uview.topAnchor, left: uview.leftAnchor, bottom: uview.bottomAnchor, right: uview.rightAnchor, paddingTop: 3, paddingLeft: constraint.padding, paddingBottom: 3, paddingRight: constraint.padding)
+        uview.backgroundColor = ColorManager.shared.color("lightRed")
+        uview.layer.cornerRadius = constraint.corderRadius
+        return uview
     }()
     
     private var dateLabel : UILabel = {

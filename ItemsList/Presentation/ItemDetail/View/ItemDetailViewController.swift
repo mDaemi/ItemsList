@@ -83,18 +83,19 @@ final class ItemDetailViewController: AbstractViewController {
     private let urgentView : UIView = {
         let view = UIView()
         let textLabel = UILabel()
-        textLabel.text = "urgent"
+        textLabel.text = localized("item.urgent")
         textLabel.textAlignment = .center
         textLabel.font = FontConstant.boldMedium.getFont()
         textLabel.textColor = ColorManager.shared.color("softBlack")
         view.addSubview(textLabel)
-        textLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        textLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 3, paddingLeft: constraint.padding, paddingBottom: 3, paddingRight: constraint.padding)
         view.backgroundColor = ColorManager.shared.color("lightRed")
         view.layer.cornerRadius = constraint.corderRadius
         return view
     }()
     
     override func loadView() {
+        let width = UIScreen.main.bounds.width
         view = UIView()
         view.backgroundColor = .white
         view.addSubview(scrollView)
@@ -118,9 +119,9 @@ final class ItemDetailViewController: AbstractViewController {
         containerView.addSubview(priceLabel)
         containerView.addSubview(descriptionLabel)
         
-        itemImage.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, height: UIScreen.main.bounds.width)
+        itemImage.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, height: width)
         
-        urgentView.anchor(top: itemImage.topAnchor, left: nil, bottom: nil, right: itemImage.rightAnchor, paddingTop: constraint.paddingBig, paddingLeft: 0, paddingBottom: 0, paddingRight: constraint.paddingBig, width: 80, height: 25)
+        urgentView.anchor(top: itemImage.topAnchor, left: nil, bottom: nil, right: itemImage.rightAnchor, paddingTop: constraint.paddingBig, paddingLeft: 0, paddingBottom: 0, paddingRight: constraint.paddingBig)
         
         categoryLabel.anchor(top: itemImage.bottomAnchor, left: containerView.leftAnchor, bottom: titleLabel.topAnchor, right: containerView.rightAnchor, paddingTop: constraint.paddingBig, paddingLeft: constraint.paddingBig, paddingBottom: constraint.padding, paddingRight: constraint.padding)
        

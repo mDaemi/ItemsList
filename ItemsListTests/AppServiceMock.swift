@@ -11,7 +11,7 @@ import XCTest
 class ModelTest: XCTestCase {
     var viewModel: ItemsViewModel?
     override func setUpWithError() throws {
-        let navigator = AppNavigator(services: DataUseCaseProvider(), navigationController: UINavigationController())
+        let navigator = AppNavigator(services: DataUseCaseProviderMock(), navigationController: UINavigationController())
         self.viewModel = ItemsViewModel(navigator, DataUseCaseProvider().provideAppUseCase())
     }
 

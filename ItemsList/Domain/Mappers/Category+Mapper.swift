@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Category {
+extension ItemCategory {
     func toPresentation() -> CategoryUIModel {
         return CategoryUIModel(name: self.name, id: self.id)
     }

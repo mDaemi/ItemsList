@@ -17,7 +17,7 @@ class AppDataSource {
         return result
     }
     
-    public func getCategories() async throws -> [Category]? {
+    public func getCategories() async throws -> [ItemCategory]? {
         return try await service.getCategories().map {$0.map {$0.toDomain()}}
     }
 }

@@ -72,7 +72,9 @@ final class AppService: AbstractService {
                 completion(nil, error)
             } else if let data = data {
                 do {
-                    completion(try self.getDecoder().decode([ItemResponse].self, from: data), nil)
+                    let decoder = self.getDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
+                    completion(try decoder.decode([ItemResponse].self, from: data), nil)
                 } catch {
                     completion(nil, AppError.ServiceError.invalidData)
                 }

@@ -17,3 +17,4 @@
  ******************************************************************************/
 "item.filter" = "tous les articles";
 "item.done" = "Choisir";
+"item.urgent" = "urgent";

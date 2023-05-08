@@ -25,10 +25,14 @@ final class SplashViewController: AbstractViewController {
         view.addSubview(splashImageView)
         splashImageView.constraintToSuperview()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.0, repeats: false, block: { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { [weak self] _ in
             if let viewModel = self?.viewModel {
                 viewModel.toItems()
             }
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
 }

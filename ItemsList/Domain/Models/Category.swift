@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category {
+public struct ItemCategory {
     let id: Int
     let name: String
 }
