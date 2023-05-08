@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class ItemsViewModel {
+public class ItemsViewModel {
     
     // MARK: - Properties
     private var navigator: AppNavigator
@@ -31,19 +31,19 @@ final class ItemsViewModel {
     }
     
     // MARK: - Internal
-    func fetchItems() async throws {
+    public func fetchItems() async throws {
         var result = try await useCase.loadItems().map {$0.map {$0.toPresentation()}} ?? []
         result = result.sorted(by: { $0.creation_date.compare($1.creation_date) == .orderedDescending })
         result.sort { $0.is_urgent && !$1.is_urgent }
         items = result
     }
     
-    func fetchCategories() async throws {
+    public func fetchCategories() async throws {
         categories = try await useCase.loadCategories().map {$0.map {$0.toPresentation()}} ?? []
         updateItems()
     }
     
-    func updateItems() {
+    public func updateItems() {
         var index = 0
         for item in items {
             if let category = categories.first (where:{ $0.id == item.category_id }) {
@@ -53,7 +53,7 @@ final class ItemsViewModel {
         }
     }
     
-    func toItemDetail() {
-        navigator.toItemDetail()
+    func toDetails(of item: ItemUIModel) {
+        navigator.toDetails(of: item)
     }
 }

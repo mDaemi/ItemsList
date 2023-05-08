@@ -9,7 +9,7 @@ import UIKit
 
 protocol PAppNavigator {
     func toItems()
-    func toItemDetail()
+    func toDetails(of item: ItemUIModel)
 }
 
 class AppNavigator: AbstractNavigator, PAppNavigator {
@@ -20,8 +20,8 @@ class AppNavigator: AbstractNavigator, PAppNavigator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func toItemDetail() {
-        let vc = ItemDetailViewController()
+    func toDetails(of item: ItemUIModel) {
+        let vc = ItemDetailViewController(item)
         navigationController.pushViewController(vc, animated: true)
     }
     

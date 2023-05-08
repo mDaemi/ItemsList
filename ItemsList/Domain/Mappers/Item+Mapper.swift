@@ -9,7 +9,8 @@ import Foundation
 
 extension Item {
     func toPresentation() -> ItemUIModel {
-        return ItemUIModel(title: self.title,
+        return ItemUIModel(id: self.id,
+                           title: self.title,
                            description: self.description,
                            price: (self.price == nil) ? "" : numberFormatter(on: self.price!),
                            images_url: self.images_url,

@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct ItemUIModel {
+struct ItemUIModel: Equatable {
+    static func == (lhs: ItemUIModel, rhs: ItemUIModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    let id: Int
     let title: String
     let description: String
     var price: String

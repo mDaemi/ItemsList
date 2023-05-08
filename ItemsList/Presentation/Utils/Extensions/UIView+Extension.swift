@@ -135,8 +135,8 @@ extension UIView {
     func anchor (top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat? = 0, height: CGFloat? = 0) {
         
         let insets = self.safeAreaInsets
-        var topInset = insets.top
-        var bottomInset = insets.bottom
+        let topInset = insets.top
+        let bottomInset = insets.bottom
         
         translatesAutoresizingMaskIntoConstraints = false
         if let top = top {
@@ -157,5 +157,15 @@ extension UIView {
         if let width = width, width != 0 {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
+    }
+    
+    func isHaveSubview<T: UIView>(ofType type: T.Type) -> Bool {
+        var subviews = [T]()
+        for subview in self.subviews {
+            if let subview = subview as? T {
+                return true
+            }
+        }
+        return false
     }
 }

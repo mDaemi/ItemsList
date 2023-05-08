@@ -30,6 +30,7 @@ final class ItemsListViewController: AbstractViewController {
         button.addTarget(self, action: #selector(filterButtonWasTapped), for: .touchUpInside)
         button.widthAnchor.constraint(equalToConstant: 24).isActive = true
         button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        button.isEnabled = !view.isHaveSubview(ofType: PickerView.self)
         
         let barButtonItem = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = barButtonItem
@@ -65,9 +66,16 @@ final class ItemsListViewController: AbstractViewController {
                 if filterWasSelected {
                     self?.pickerView.removeFromSuperview()
                     self?.startFiltering()
+                    if let count = self?.filteredItems.count, count > 2 {
+                        self?.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    }
                 }
             }
             .store(in: &observers)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        view.layoutSubviews()
     }
     
     // MARK: - Private
@@ -148,6 +156,10 @@ extension ItemsListViewController: UICollectionViewDelegateFlowLayout {
         let height = width * 1.5
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.toDetails(of: filteredItems[indexPath.row])
+    }
 }
 
 // MARK: - UIPickerView
@@ -168,5 +180,4 @@ extension ItemsListViewController: UIPickerViewDelegate, UIPickerViewDataSource 
         filterWord = viewModel?.categoriesNames[row]
     }
 }
-
 

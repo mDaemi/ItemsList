@@ -115,8 +115,10 @@ final class ItemCollectionViewCell: UICollectionViewCell {
         dateLabel.text = item?.creation_date
         priceLabel.text = item?.price
         
-        if let image = item?.images_url, let imageStr = image.thumb, let url = URL(string: imageStr) {
-            itemImage.load(url: url)
+        if let image = item?.images_url, let imageStr = image.thumb {
+            itemImage.loadImage(urlString: imageStr,
+                                 placeholderImage: UIImage(named: "place_holder"),
+                                 errorImage: UIImage(named: "place_holder"))
         }
         
         if let isUrgent = item?.is_urgent, !isUrgent {
