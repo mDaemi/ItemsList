@@ -152,9 +152,8 @@ extension UIView {
     }
     
     func isHaveSubview<T: UIView>(ofType type: T.Type) -> Bool {
-        var subviews = [T]()
         for subview in self.subviews {
-            if let subview = subview as? T {
+            if let _ = subview as? T {
                 return true
             }
         }

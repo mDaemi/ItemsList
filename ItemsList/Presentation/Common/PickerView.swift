@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+// TODO: Handle pickerView in the rotation
 final class PickerView: UIView {
     // MARK: - Properties
     var picker: UIPickerView = UIPickerView.init()
@@ -37,6 +38,7 @@ final class PickerView: UIView {
         addSubview(toolBar)
     }
     
+    // MARK: - Action
     @objc private func onButtonTapped() {
         didSelect = true
     }

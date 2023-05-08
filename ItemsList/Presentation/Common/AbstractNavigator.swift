@@ -8,9 +8,11 @@
 import UIKit
 
 public class AbstractNavigator {
+    // MARK: - Properties
     internal let navigationController: UINavigationController
     internal let services: UseCaseProvider
 
+    // MARK: - Init
     init(services: UseCaseProvider,
          navigationController: UINavigationController) {
         self.services = services

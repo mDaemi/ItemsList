@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CategoryResponse: Codable {
+struct CategoryResponse: Decodable {
     var id: Int?
     var name: String?
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemResponse: Codable {
+struct ItemResponse: Decodable {
     var id: Int?
     var category_id: Int?
     var title: String?
@@ -18,7 +18,7 @@ struct ItemResponse: Codable {
     var is_urgent: Bool?
 }
 
-struct ImagesUrl: Codable {
+struct ImagesUrl: Decodable {
     var small: String?
     var thumb: String?
 }
