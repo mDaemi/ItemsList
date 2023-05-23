@@ -6,6 +6,8 @@ Minimum deployment target: iOS 14.0
 
 Supperted destinations: iPhone, iPad
 
+Frameworks: UIKit, Combine
+
 - The project uses the MVVM and Clean Architecture patterns to provide a clear separation of concerns between the different components of the app. 
 - It includes unit tests to ensure the functionality of the app.
 - The interfaces in the application are created using AutoLayout directly in the code.
